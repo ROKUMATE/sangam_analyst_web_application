@@ -19,6 +19,7 @@ import {
   ShieldCheck,
   Clock,
 } from 'lucide-react';
+import { requestAnalystOTP, verifyOTP } from '@/lib/api-integration';
 
 interface LoginPageProps {
   onLoginSuccess: (analyst: { name: string; phone: string }) => void;
@@ -78,22 +79,13 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
     setError('');
 
     try {
-      // TODO: Replace with actual API call
-      // const response = await fetch('/api/auth/send-otp', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ phone })
-      // })
-      // const data = await response.json()
-      // if (!data.success) throw new Error(data.message)
+      const response = await requestAnalystOTP(phone);
+      console.log('OTP sent successfully:', response.OTP); // For development only - remove in production
 
-      // Simulate OTP sending
-      setTimeout(() => {
-        setOtpSent(true);
-        setStep('otp');
-        setResendTimer(60);
-        setLoading(false);
-      }, 1000);
+      setOtpSent(true);
+      setStep('otp');
+      setResendTimer(60);
+      setLoading(false);
     } catch (err) {
       setError(
         err instanceof Error
@@ -114,51 +106,19 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
     setError('');
 
     try {
-      // TODO: Replace with actual API call and token storage
-      // const response = await fetch('/api/auth/verify-otp', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ phone, otp })
-      // })
-      // const data = await response.json()
-      //
-      // if (data.success) {
-      //   // Store tokens in httpOnly cookies (automatically done by server)
-      //   // accessToken: for API requests (short-lived)
-      //   // refreshToken: for getting new accessToken (long-lived)
-      //   onLoginSuccess({
-      //     name: data.analyst.name,
-      //     phone: data.analyst.phone
-      //   })
-      // } else {
-      //   throw new Error(data.message)
-      // }
+      const response = await verifyOTP(phone, otp);
 
-      // Simulate OTP verification
-      setTimeout(() => {
-        if (otp === '1234' || otp.length === 4) {
-          const analystNames = [
-            'Dr. Sarah Kumar',
-            'James Chen',
-            'Maria Garcia',
-            'Ahmed Hassan',
-          ];
-          const randomName =
-            analystNames[Math.floor(Math.random() * analystNames.length)];
+      // Tokens are automatically stored in cookies by the service
+      // User data is available in response.user
+      console.log('Login successful:', response.user);
 
-          // Mock token storage (replace with actual cookie storage after API integration)
-          // document.cookie = `accessToken=${mockToken}; httpOnly; secure; sameSite=strict;`
-          // document.cookie = `refreshToken=${mockRefreshToken}; httpOnly; secure; sameSite=strict;`
+      // Pass user data to parent component
+      onLoginSuccess({
+        name: `${response.user.first_name} ${response.user.last_name}`,
+        phone: response.user.mobile,
+      });
 
-          onLoginSuccess({
-            name: randomName,
-            phone: phone,
-          });
-        } else {
-          setError('Invalid OTP. Please try again.');
-        }
-        setLoading(false);
-      }, 1000);
+      setLoading(false);
     } catch (err) {
       setError(
         err instanceof Error
