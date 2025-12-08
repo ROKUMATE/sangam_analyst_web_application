@@ -50,8 +50,8 @@ export default function TweetDetailsPanel({
   };
 
   return (
-    <Card className="h-full border-0 rounded-none border-l flex flex-col overflow-hidden">
-      <CardHeader className="pb-3 border-b flex-shrink-0 flex flex-row items-start justify-between">
+    <Card className="h-full border-2 rounded-lg flex flex-col overflow-hidden shadow-sm">
+      <CardHeader className="pb-3 border-b flex-shrink-0 flex flex-row items-start justify-between px-4 py-4">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
             <CardTitle>Tweet Details</CardTitle>
@@ -77,7 +77,7 @@ export default function TweetDetailsPanel({
         </button>
       </CardHeader>
 
-      <CardContent className="flex-1 overflow-y-auto space-y-4 pt-4">
+      <CardContent className="flex-1 overflow-y-auto space-y-4 pt-4 px-4 pb-4">
         {/* Author Info */}
         <div className="bg-muted/50 rounded-lg p-3">
           <div className="flex items-center gap-3 mb-3">

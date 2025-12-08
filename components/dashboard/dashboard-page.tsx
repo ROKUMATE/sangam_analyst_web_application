@@ -328,14 +328,14 @@ export default function DashboardPage({
         </div>
 
         {/* Bottom Section: Tweets List (full when closed, 40% when open) and Details Panel (60% when open) */}
-        <div className="flex-1 flex overflow-hidden gap-0">
+        <div className="flex-1 flex overflow-hidden gap-0 p-6 pt-0">
           {/* Left: Tweet List - Full width when no selection, 40% when selection exists */}
           <div
             className={`flex flex-col ${
               selectedTweet ? 'w-2/5' : 'w-full'
             } transition-all duration-300`}>
             <Card
-              className="h-full border-0 rounded-none flex flex-col"
+              className="h-full border-2 rounded-lg flex flex-col shadow-sm"
               style={
                 selectedTweet ? { borderRight: '1px solid var(--border)' } : {}
               }>
@@ -385,7 +385,7 @@ export default function DashboardPage({
 
           {/* Right: Details Panel (60%, smooth slide-in) - Only shows when tweet selected */}
           {selectedTweet && (
-            <div className="w-3/5 overflow-hidden animate-in slide-in-from-right-96 duration-300">
+            <div className="w-3/5 overflow-hidden animate-in slide-in-from-right-96 duration-300 pl-6">
               <TweetDetailsPanel
                 tweet={selectedTweet}
                 verificationStatus={

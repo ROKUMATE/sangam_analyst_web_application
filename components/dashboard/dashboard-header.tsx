@@ -35,10 +35,10 @@ export default function DashboardHeader({
         </div>
 
         <div className="flex items-center gap-6">
-          <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
-            <Clock className="w-4 h-4" />
-            <span>{currentTime}</span>
-          </div>
+          {/* <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground"> */}
+          {/* <Clock className="w-4 h-4" /> */}
+          {/* <span>{currentTime}</span> */}
+          {/* </div> */}
 
           <div className="flex items-center gap-2">
             <Button
@@ -58,20 +58,20 @@ export default function DashboardHeader({
             </Button>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             {analyst && (
               <div className="text-right hidden sm:block">
                 <p className="text-sm font-semibold text-foreground">
                   {analyst.name}
                 </p>
-                <p className="text-xs text-muted-foreground">{analyst.phone}</p>
+                {/* <p className="text-xs text-muted-foreground">{analyst.phone}</p> */}
               </div>
             )}
             <Button
               variant="outline"
               size="sm"
               onClick={onLogout}
-              className="flex items-center gap-2 border-border text-foreground hover:bg-muted bg-transparent">
+              className="flex items-center gap-3 border-border text-foreground hover:bg-muted bg-transparent">
               <LogOut className="w-4 h-4" />
               <span className="hidden sm:inline">Logout</span>
             </Button>
