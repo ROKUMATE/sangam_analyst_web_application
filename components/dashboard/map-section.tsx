@@ -1,27 +1,51 @@
-"use client"
+'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import type { Tweet } from "./dashboard-page"
+import { useEffect, useRef, useState } from 'react';
+import {
+  GoogleMap,
+  LoadScript,
+  MarkerF,
+  InfoWindowF,
+} from '@react-google-maps/api';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { Tweet } from './dashboard-page';
 
 interface MapSectionProps {
-  tweets: Tweet[]
-  selectedTweetId?: string
-  onSelectTweet?: (tweet: Tweet) => void
+  tweets: Tweet[];
+  selectedTweetId?: string;
+  onSelectTweet?: (tweet: Tweet) => void;
 }
 
-export default function MapSection({ tweets, selectedTweetId, onSelectTweet }: MapSectionProps) {
-  const minLat = Math.min(...tweets.map((t) => t.latitude)) - 0.05
-  const maxLat = Math.max(...tweets.map((t) => t.latitude)) + 0.05
-  const minLon = Math.min(...tweets.map((t) => t.longitude)) - 0.05
-  const maxLon = Math.max(...tweets.map((t) => t.longitude)) + 0.05
+export default function MapSection({
+  tweets,
+  selectedTweetId,
+  onSelectTweet,
+}: MapSectionProps) {
+  const mapRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const selectedTweet = tweets.find((t) => t.id === selectedTweetId);
 
-  const getLat = (lat: number) => {
-    return ((maxLat - lat) / (maxLat - minLat)) * 100
-  }
+  // Calculate map center from tweets
+  const center =
+    tweets.length > 0
+      ? {
+          lat: tweets.reduce((sum, t) => sum + t.latitude, 0) / tweets.length,
+          lng: tweets.reduce((sum, t) => sum + t.longitude, 0) / tweets.length,
+        }
+      : { lat: 40.7128, lng: -74.006 };
 
-  const getLon = (lon: number) => {
-    return ((lon - minLon) / (maxLon - minLon)) * 100
-  }
+  const getSeverityColor = (severity: string) => {
+    switch (severity) {
+      case 'critical':
+        return '#ef4444'; // red-500
+      case 'high':
+        return '#f97316'; // orange-500
+      case 'medium':
+        return '#eab308'; // yellow-500
+      default:
+        return '#3b82f6'; // blue-500
+    }
+  };
 
   return (
     <Card className="border-2 h-full flex flex-col">
@@ -29,43 +53,97 @@ export default function MapSection({ tweets, selectedTweetId, onSelectTweet }: M
         <CardTitle className="text-lg">Incident Hotspots Map</CardTitle>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col">
-        <div className="relative w-full flex-1 bg-gradient-to-b from-blue-100 to-blue-50 dark:from-blue-950 dark:to-blue-900 rounded-lg border border-blue-200 dark:border-blue-800 overflow-hidden">
-          {tweets.map((tweet) => {
-            const isSelected = tweet.id === selectedTweetId
-            let color = "bg-yellow-500"
-            if (tweet.severity === "critical") color = "bg-red-500"
-            else if (tweet.severity === "high") color = "bg-orange-500"
-            else if (tweet.severity === "medium") color = "bg-yellow-500"
+        {!process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ? (
+          <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg border border-gray-300">
+            <p className="text-gray-600">Google Maps API Key not configured</p>
+          </div>
+        ) : (
+          <LoadScript
+            googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
+            onLoad={() => setIsLoading(false)}
+            onError={() => setIsLoading(false)}>
+            {isLoading && (
+              <div className="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg">
+                <p className="text-gray-600">Loading map...</p>
+              </div>
+            )}
+            <GoogleMap
+              mapContainerClassName="w-full h-full rounded-lg border border-blue-200 dark:border-blue-800"
+              mapContainerStyle={{ width: '100%', height: '100%' }}
+              center={center}
+              zoom={12}
+              ref={mapRef}
+              options={{
+                disableDefaultUI: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                fullscreenControl: true,
+                streetViewControl: false,
+              }}>
+              {tweets.map((tweet) => {
+                const isSelected = tweet.id === selectedTweetId;
+                const severity = tweet.severity as string;
 
-            return (
-              <button
-                key={tweet.id}
-                onClick={() => onSelectTweet?.(tweet)}
-                className={`absolute w-3 h-3 rounded-full cursor-pointer transition-all transform -translate-x-1/2 -translate-y-1/2 ${color} ${
-                  isSelected ? "scale-150 ring-2 ring-offset-2 ring-primary" : "hover:scale-125"
-                }`}
-                style={{
-                  left: `${getLon(tweet.longitude)}%`,
-                  top: `${getLat(tweet.latitude)}%`,
-                }}
-                title={`${tweet.author}: ${tweet.severity}`}
-              />
-            )
-          })}
+                return (
+                  <MarkerF
+                    key={tweet.id}
+                    position={{ lat: tweet.latitude, lng: tweet.longitude }}
+                    onClick={() => onSelectTweet?.(tweet)}
+                    icon={
+                      isSelected
+                        ? {
+                            path: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z',
+                            fillColor: getSeverityColor(severity),
+                            fillOpacity: 1,
+                            scale: 2,
+                            strokeColor: '#ffffff',
+                            strokeWeight: 2,
+                          }
+                        : {
+                            path: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z',
+                            fillColor: getSeverityColor(severity),
+                            fillOpacity: 1,
+                            scale: 1.2,
+                            strokeColor: '#ffffff',
+                            strokeWeight: 1.5,
+                          }
+                    }
+                    title={`${tweet.author}: ${severity}`}>
+                    {isSelected && selectedTweet && (
+                      <InfoWindowF onCloseClick={() => onSelectTweet?.(tweet)}>
+                        <div className="p-2 text-sm">
+                          <p className="font-semibold">
+                            {selectedTweet.author}
+                          </p>
+                          <p className="text-xs text-gray-600">
+                            {selectedTweet.severity}
+                          </p>
+                        </div>
+                      </InfoWindowF>
+                    )}
+                  </MarkerF>
+                );
+              })}
+            </GoogleMap>
+          </LoadScript>
+        )}
 
-          {/* Legend */}
-          <div className="absolute bottom-2 left-2 flex gap-2 text-xs">
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-red-500" />
-              <span className="text-muted-foreground">Critical</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-orange-500" />
-              <span className="text-muted-foreground">High</span>
-            </div>
+        {/* Legend */}
+        <div className="mt-3 flex gap-4 text-xs">
+          <div className="flex items-center gap-1">
+            <div className="w-2 h-2 rounded-full bg-red-500" />
+            <span className="text-muted-foreground">Critical</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <div className="w-2 h-2 rounded-full bg-orange-500" />
+            <span className="text-muted-foreground">High</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <div className="w-2 h-2 rounded-full bg-yellow-500" />
+            <span className="text-muted-foreground">Medium</span>
           </div>
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
