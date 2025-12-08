@@ -12,13 +12,13 @@ import {
   Calendar,
   ThumbsUp,
   Phone,
-  Zap,
-  Settings,
   Send,
   CheckCircle2,
   XCircle,
   ExternalLink,
   X,
+  Zap,
+  Settings,
   Map,
 } from 'lucide-react';
 import type { Tweet } from './dashboard-page';
@@ -27,7 +27,7 @@ interface TweetDetailsPanelProps {
   tweet: Tweet;
   verificationStatus: 'unverified' | 'verified_true' | 'verified_false';
   isSentToAdmin: boolean;
-  onVerify: (isTrue: boolean) => void;
+  onVerify: () => void;
   onSendToAdmin: () => void;
   onClose: () => void;
 }
@@ -58,13 +58,9 @@ export default function TweetDetailsPanel({
             <Badge className={severityColors[tweet.severity]}>
               {tweet.severity.charAt(0).toUpperCase() + tweet.severity.slice(1)}
             </Badge>
-            {verificationStatus === 'verified_true' && (
-              <Badge className="bg-green-600 text-white">Verified True</Badge>
-            )}
-            {verificationStatus === 'verified_false' && (
-              <Badge className="bg-red-600 text-white">Verified False</Badge>
-            )}
-            {verificationStatus === 'unverified' && (
+            {verificationStatus === 'verified_true' ? (
+              <Badge className="bg-green-600 text-white">Verified</Badge>
+            ) : (
               <Badge variant="outline">Unverified</Badge>
             )}
           </div>
@@ -185,33 +181,24 @@ export default function TweetDetailsPanel({
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="ai" className="text-xs">
                   <Zap className="w-3 h-3 mr-1" />
-                  AI Report
+                  AI Verification
                 </TabsTrigger>
                 <TabsTrigger value="manual" className="text-xs">
                   <Settings className="w-3 h-3 mr-1" />
-                  Manual
+                  Manual Verification
                 </TabsTrigger>
               </TabsList>
 
               <TabsContent value="ai" className="space-y-3 mt-3">
                 <p className="text-xs text-muted-foreground">
-                  Review the AI analysis above and choose to verify as true or
-                  false
+                  Review the AI analysis report above and verify this tweet
                 </p>
-                <div className="flex gap-2">
-                  <Button
-                    onClick={() => onVerify(true)}
-                    className="flex-1 bg-green-600 hover:bg-green-700 text-white text-xs">
-                    <CheckCircle2 className="w-3 h-3 mr-1" />
-                    Verify as True
-                  </Button>
-                  <Button
-                    onClick={() => onVerify(false)}
-                    className="flex-1 bg-red-600 hover:bg-red-700 text-white text-xs">
-                    <XCircle className="w-3 h-3 mr-1" />
-                    Verify as False
-                  </Button>
-                </div>
+                <Button
+                  onClick={onVerify}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white text-sm">
+                  <CheckCircle2 className="w-4 h-4 mr-2" />
+                  Verify Tweet
+                </Button>
               </TabsContent>
 
               <TabsContent value="manual" className="space-y-3 mt-3">
@@ -262,26 +249,15 @@ export default function TweetDetailsPanel({
                       </Button>
                     </a>
 
-                    <div className="flex gap-2">
-                      <Button
-                        onClick={() => {
-                          onVerify(true);
-                          setShowManualVerification(false);
-                        }}
-                        className="flex-1 bg-green-600 hover:bg-green-700 text-white text-xs">
-                        <CheckCircle2 className="w-3 h-3 mr-1" />
-                        Mark as True
-                      </Button>
-                      <Button
-                        onClick={() => {
-                          onVerify(false);
-                          setShowManualVerification(false);
-                        }}
-                        className="flex-1 bg-red-600 hover:bg-red-700 text-white text-xs">
-                        <XCircle className="w-3 h-3 mr-1" />
-                        Mark as False
-                      </Button>
-                    </div>
+                    <Button
+                      onClick={() => {
+                        onVerify();
+                        setShowManualVerification(false);
+                      }}
+                      className="w-full bg-green-600 hover:bg-green-700 text-white text-sm">
+                      <CheckCircle2 className="w-4 h-4 mr-2" />
+                      Verify Tweet
+                    </Button>
                   </>
                 )}
               </TabsContent>
@@ -289,43 +265,22 @@ export default function TweetDetailsPanel({
           </div>
         ) : (
           <div className="space-y-3 border-t pt-3">
-            {verificationStatus === 'verified_true' && (
-              <>
-                <Alert className="border-green-200 bg-green-50 dark:bg-green-950 dark:border-green-800">
-                  <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-400" />
-                  <AlertDescription className="text-green-700 dark:text-green-300 text-xs">
-                    You marked this as a verified true report
-                  </AlertDescription>
-                </Alert>
-                <Button
-                  onClick={() => onVerify(false)}
-                  variant="outline"
-                  className="w-full border-red-300 hover:bg-red-50 dark:hover:bg-red-950/30 text-red-700 dark:text-red-400 text-xs">
-                  <XCircle className="w-3 h-3 mr-2" />
-                  Switch to Verified False
-                </Button>
-              </>
-            )}
-            {verificationStatus === 'verified_false' && (
-              <>
-                <Alert className="border-red-200 bg-red-50 dark:bg-red-950 dark:border-red-800">
-                  <XCircle className="h-4 w-4 text-red-600 dark:text-red-400" />
-                  <AlertDescription className="text-red-700 dark:text-red-300 text-xs">
-                    You marked this as a verified false report
-                  </AlertDescription>
-                </Alert>
-                <Button
-                  onClick={() => onVerify(true)}
-                  variant="outline"
-                  className="w-full border-green-300 hover:bg-green-50 dark:hover:bg-green-950/30 text-green-700 dark:text-green-400 text-xs">
-                  <CheckCircle2 className="w-3 h-3 mr-2" />
-                  Switch to Verified True
-                </Button>
-              </>
-            )}
+            <Alert className="border-green-200 bg-green-50 dark:bg-green-950 dark:border-green-800">
+              <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-400" />
+              <AlertDescription className="text-green-700 dark:text-green-300 text-xs">
+                This tweet has been verified
+              </AlertDescription>
+            </Alert>
+            <Button
+              onClick={onVerify}
+              variant="outline"
+              className="w-full border-muted-foreground/30 text-xs">
+              <XCircle className="w-3 h-3 mr-2" />
+              Unverify Tweet
+            </Button>
 
-            {/* Only show Send to Administrator button if verified as TRUE */}
-            {verificationStatus === 'verified_true' && !isSentToAdmin && (
+            {/* Only show Send to Administrator button if verified */}
+            {!isSentToAdmin && (
               <Button
                 onClick={onSendToAdmin}
                 className="w-full bg-secondary hover:bg-secondary/90 text-xs">

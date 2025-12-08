@@ -38,6 +38,9 @@ export const ANALYST_ENDPOINTS = {
 
   // Get detailed tweet information with AI analysis
   GET_TWEET_DETAIL: `${BASE_URL}/api/tweet/analyser/detail`,
+
+  // Verify tweet (mark as verified or unverified)
+  VERIFY_TWEET: `${BASE_URL}/api/tweet/verify`,
 } as const;
 
 /**

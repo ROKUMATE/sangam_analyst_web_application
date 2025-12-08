@@ -1916,6 +1916,16 @@
     border-color: var(--input);
   }
 
+  .border-muted-foreground\/30 {
+    border-color: var(--muted-foreground);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-muted-foreground\/30 {
+      border-color: color-mix(in oklab, var(--muted-foreground) 30%, transparent);
+    }
+  }
+
   .border-orange-500 {
     border-color: var(--color-orange-500);
   }

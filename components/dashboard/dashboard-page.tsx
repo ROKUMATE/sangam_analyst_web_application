@@ -14,7 +14,11 @@ import {
   CardTitle,
   CardDescription,
 } from '@/components/ui/card';
-import { getNearbyTweets, Tweet as APITweet } from '@/lib/api-integration';
+import {
+  getNearbyTweets,
+  verifyTweet,
+  Tweet as APITweet,
+} from '@/lib/api-integration';
 import { clearAuthData } from '@/lib/utils/cookies';
 
 export interface Tweet {
@@ -105,26 +109,60 @@ export default function DashboardPage({
     });
   }, [sortBy, tweets]);
 
-  const handleVerifyTweet = (isTrue: boolean) => {
+  const handleVerifyTweet = async () => {
     if (!selectedTweet) return;
-    const status = isTrue ? 'verified_true' : 'verified_false';
-    setVerificationStatuses(
-      new Map(verificationStatuses).set(selectedTweet.id, status)
-    );
 
-    const notification: {
-      id: string;
-      message: string;
-      type: 'critical' | 'verified';
-    } = {
-      id: Date.now().toString(),
-      message: `Tweet marked as ${isTrue ? 'verified true' : 'verified false'}`,
-      type: isTrue ? 'verified' : 'critical',
-    };
-    setNotifications((prev) => [...prev, notification]);
-    setTimeout(() => {
-      setNotifications((prev) => prev.filter((n) => n.id !== notification.id));
-    }, 3000);
+    const currentStatus =
+      verificationStatuses.get(selectedTweet.id) || 'unverified';
+    const newStatus =
+      currentStatus === 'verified_true' ? 'unverified' : 'verified_true';
+    const isVerified = newStatus === 'verified_true';
+
+    try {
+      // Call the API to verify/unverify the tweet
+      await verifyTweet(selectedTweet.id, isVerified);
+
+      // Update local state on success
+      setVerificationStatuses(
+        new Map(verificationStatuses).set(selectedTweet.id, newStatus)
+      );
+
+      const notification: {
+        id: string;
+        message: string;
+        type: 'critical' | 'verified';
+      } = {
+        id: Date.now().toString(),
+        message: isVerified
+          ? 'Tweet verified successfully'
+          : 'Tweet verification removed',
+        type: isVerified ? 'verified' : 'critical',
+      };
+      setNotifications((prev) => [...prev, notification]);
+      setTimeout(() => {
+        setNotifications((prev) =>
+          prev.filter((n) => n.id !== notification.id)
+        );
+      }, 3000);
+    } catch (error) {
+      console.error('Failed to verify tweet:', error);
+      const errorNotification: {
+        id: string;
+        message: string;
+        type: 'critical' | 'verified';
+      } = {
+        id: Date.now().toString(),
+        message:
+          error instanceof Error ? error.message : 'Failed to verify tweet',
+        type: 'critical',
+      };
+      setNotifications((prev) => [...prev, errorNotification]);
+      setTimeout(() => {
+        setNotifications((prev) =>
+          prev.filter((n) => n.id !== errorNotification.id)
+        );
+      }, 3000);
+    }
   };
 
   const handleSendToAdmin = () => {
@@ -162,7 +200,11 @@ export default function DashboardPage({
   const stats = {
     total: tweets.length,
     criticalCount: tweets.filter((t) => t.severity === 'critical').length,
-    verified: Array.from(verificationStatuses.values()).length,
+    verified: tweets.filter(
+      (t) =>
+        t.verificationStatus === 'verified_true' ||
+        verificationStatuses.get(t.id) === 'verified_true'
+    ).length,
     sentToAdmin: sentToAdminTweets.size,
   };
 

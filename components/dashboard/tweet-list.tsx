@@ -34,10 +34,15 @@ export default function TweetList({
   return (
     <div className="space-y-2">
       {tweets.map((tweet) => {
-        const status = verificationStatuses.get(tweet.id) || 'unverified';
+        // Check both API verification status and local verification status
+        const localStatus = verificationStatuses.get(tweet.id);
+        const isVerifiedFromAPI = tweet.verificationStatus === 'verified_true';
+        const status =
+          localStatus || (isVerifiedFromAPI ? 'verified_true' : 'unverified');
+
         let borderColor = 'border-border';
         let bgColor = '';
-        if (status === 'verified_true') {
+        if (status === 'verified_true' || isVerifiedFromAPI) {
           borderColor = 'border-green-500';
           bgColor = 'bg-green-50 dark:bg-green-950/30';
         } else if (status === 'verified_false') {
@@ -116,10 +121,10 @@ export default function TweetList({
                   </div>
 
                   <div className="flex gap-1.5 ml-auto">
-                    {status === 'verified_true' && (
+                    {(status === 'verified_true' || isVerifiedFromAPI) && (
                       <Badge className="bg-green-600 hover:bg-green-700 text-white text-xs font-medium shadow-sm">
                         <CheckCircle2 className="w-3 h-3 mr-1" />
-                        Verified True
+                        Verified
                       </Badge>
                     )}
                     {status === 'verified_false' && (
@@ -128,7 +133,7 @@ export default function TweetList({
                         Verified False
                       </Badge>
                     )}
-                    {status === 'unverified' && (
+                    {status === 'unverified' && !isVerifiedFromAPI && (
                       <Badge
                         variant="outline"
                         className="text-xs border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 font-medium">

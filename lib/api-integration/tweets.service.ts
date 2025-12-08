@@ -361,3 +361,50 @@ export async function getMyTweets(userLocation?: {
     throw error;
   }
 }
+
+/**
+ * Verify or unverify a tweet
+ *
+ * @param tweetId - The tweet_id to verify
+ * @param isVerified - Whether to mark as verified (true) or unverified (false)
+ * @returns Promise with verification response
+ */
+export async function verifyTweet(
+  tweetId: string,
+  isVerified: boolean
+): Promise<{ tweet_id: string; is_verified: boolean }> {
+  const token = getAccessToken();
+
+  if (!token) {
+    throw new Error('Not authenticated. Please login again.');
+  }
+
+  try {
+    const response = await fetch(ANALYST_ENDPOINTS.VERIFY_TWEET, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        tweet_id: tweetId,
+        is_verified: isVerified,
+      }),
+    });
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error('Session expired. Please login again.');
+      }
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to verify tweet');
+    }
+
+    const result: { tweet_id: string; is_verified: boolean } =
+      await response.json();
+    return result;
+  } catch (error) {
+    console.error('Error verifying tweet:', error);
+    throw error;
+  }
+}
