@@ -7,6 +7,9 @@
 // Authentication services
 export * from './auth.service';
 
+// Tweets services
+export * from './tweets.service';
+
 // Export types
 export * from '../types/api.types';
 

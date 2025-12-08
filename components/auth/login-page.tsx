@@ -20,6 +20,7 @@ import {
   Clock,
 } from 'lucide-react';
 import { requestAnalystOTP, verifyOTP } from '@/lib/api-integration';
+import { storeUserData } from '@/lib/utils/cookies';
 
 interface LoginPageProps {
   onLoginSuccess: (analyst: { name: string; phone: string }) => void;
@@ -112,11 +113,16 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
       // User data is available in response.user
       console.log('Login successful:', response.user);
 
-      // Pass user data to parent component
-      onLoginSuccess({
+      const userData = {
         name: `${response.user.first_name} ${response.user.last_name}`,
         phone: response.user.mobile,
-      });
+      };
+
+      // Store user data in cookies for persistence
+      storeUserData(userData);
+
+      // Pass user data to parent component
+      onLoginSuccess(userData);
 
       setLoading(false);
     } catch (err) {

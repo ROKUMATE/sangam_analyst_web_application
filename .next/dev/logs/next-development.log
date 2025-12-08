@@ -69,3 +69,88 @@ https://developers.google.com/maps/documentation/javascript/error-messages#billi
 [07:45:09.158] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
 [07:45:09.758] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
 https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
+[07:48:30.091] Server  LOG      ✓ Compiled in 71ms
+[07:49:29.650] Server  LOG      ✓ Compiled in 59ms
+[07:49:43.910] Server  LOG      ✓ Compiled in 58ms
+[07:49:55.610] Server  LOG      ✓ Compiled in 56ms
+[07:49:55.719] Browser ERROR   ./components/dashboard/dashboard-page.tsx:91:9
+Ecmascript file had an error
+  89 |   }, []);
+  90 |
+> 91 |   const tweets: Tweet[] = [
+     |         ^^^^^^
+  92 |     {
+  93 |       id: '1',
+  94 |       author: 'John Smith',
+
+the name `tweets` is defined multiple times
+
+Import traces:
+  Client Component Browser:
+    ./components/dashboard/dashboard-page.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/dashboard/dashboard-page.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[07:50:22.270] Browser WARN    Element with name "gmp-internal-loading-text" already defined.
+[07:50:22.270] Browser WARN    Element with name "gmp-internal-request-error-text" already defined.
+[07:50:22.270] Browser WARN    Element with name "gmp-internal-back-button" already defined.
+[07:50:22.270] Browser WARN    Element with name "gmp-internal-dialog" already defined.
+[07:50:22.270] Browser WARN    Element with name "gmp-internal-disclosure" already defined.
+[07:50:22.270] Browser WARN    Element with name "gmp-internal-disclosure-section" already defined.
+[07:50:22.270] Browser WARN    Element with name "gmp-internal-attribution" already defined.
+[07:50:22.270] Browser WARN    Element with name "gmp-internal-element-support-verification" already defined.
+[07:50:22.270] Browser WARN    Element with name "gmp-map" already defined.
+[07:50:22.270] Browser WARN    Element with name "gmp-pin" already defined.
+[07:50:22.945] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
+https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
+[07:50:22.945] Browser WARN    Element with name "gmp-internal-camera-control" already defined.
+[07:50:51.748] Server  LOG      ✓ Compiled in 118ms
+[07:54:36.890] Server  LOG      ✓ Compiled in 75ms
+[07:54:43.499] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[07:54:43.499] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[07:54:43.499] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765220112240}
+[07:54:49.251] Browser LOG     OTP sent successfully: 573855
+[07:55:12.407] Browser LOG     Login successful: {"first_name":"new","home address":"asdfasdfas","last_name":"user","mobile":"9999999999"}
+[07:55:12.991] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
+https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
+[07:55:36.889] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[07:55:36.889] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[07:55:36.889] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765220165782}
+[07:55:43.707] Browser LOG     OTP sent successfully: 629898
+[07:56:00.428] Browser LOG     Login successful: {"first_name":"new","home address":"asdfasdfas","last_name":"user","mobile":"9999999999"}
+[07:56:00.953] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
+https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
+[08:04:24.774] Server  LOG      ✓ Compiled in 70ms
+[08:05:01.602] Server  LOG      ✓ Compiled in 72ms
+[08:05:15.082] Server  LOG      ✓ Compiled in 55ms
+[08:05:26.588] Server  LOG      ✓ Compiled in 55ms
+[08:07:05.714] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[08:07:05.715] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[08:07:05.715] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765220854607}
+[08:07:11.593] Browser LOG     OTP sent successfully: 142671
+[08:07:18.592] Browser LOG     Login successful: {"first_name":"new","home address":"asdfasdfas","last_name":"user","mobile":"9999999999"}
+[08:07:19.150] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
+https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
+[08:07:20.446] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
+[08:12:22.310] Server  LOG      ✓ Compiled in 110ms
+[08:12:22.449] Browser WARN    Element with name "gmp-internal-loading-text" already defined.
+[08:12:22.449] Browser WARN    Element with name "gmp-internal-request-error-text" already defined.
+[08:12:22.449] Browser WARN    Element with name "gmp-internal-back-button" already defined.
+[08:12:22.449] Browser WARN    Element with name "gmp-internal-dialog" already defined.
+[08:12:22.449] Browser WARN    Element with name "gmp-internal-disclosure" already defined.
+[08:12:22.449] Browser WARN    Element with name "gmp-internal-disclosure-section" already defined.
+[08:12:22.449] Browser WARN    Element with name "gmp-internal-attribution" already defined.
+[08:12:22.449] Browser WARN    Element with name "gmp-internal-element-support-verification" already defined.
+[08:12:22.449] Browser WARN    Element with name "gmp-map" already defined.
+[08:12:22.449] Browser WARN    Element with name "gmp-pin" already defined.
+[08:12:23.029] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
+https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
+[08:12:23.029] Browser WARN    Element with name "gmp-internal-camera-control" already defined.
+[08:12:23.029] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
+[08:12:23.029] Browser WARN    Element with name "gmp-internal-use-am" already defined.
+[08:12:38.487] Server  LOG      ✓ Compiled in 95ms
+[08:13:12.823] Server  LOG      ✓ Compiled in 46ms

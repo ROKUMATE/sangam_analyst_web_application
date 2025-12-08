@@ -27,6 +27,12 @@ export const AUTH_ENDPOINTS = {
  * Analyst/Tweet Endpoints
  */
 export const ANALYST_ENDPOINTS = {
+  // Get tweets nearby based on lat/lon query parameters
+  GET_NEARBY_TWEETS: `${BASE_URL}/api/tweets/nearby`,
+
+  // Get all tweets created by the analyst
+  GET_MY_TWEETS: `${BASE_URL}/api/tweets/me`,
+
   // Get tweets within radius from analyser's location
   GET_TWEETS: `${BASE_URL}/api/tweets/analyser`,
 
