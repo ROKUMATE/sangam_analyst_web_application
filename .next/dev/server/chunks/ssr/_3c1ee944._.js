@@ -431,7 +431,7 @@ function LoginPage({ onLoginSuccess }) {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                             className: "text-3xl font-bold text-foreground mb-2",
-                            children: "AquaX"
+                            children: "Sangam"
                         }, void 0, false, {
                             fileName: "[project]/components/auth/login-page.tsx",
                             lineNumber: 188,
@@ -842,7 +842,7 @@ function LoginPage({ onLoginSuccess }) {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-xs",
-                            children: "© 2025 AquaX Platform. All rights reserved."
+                            children: "© 2025 Sangam Platform. All rights reserved."
                         }, void 0, false, {
                             fileName: "[project]/components/auth/login-page.tsx",
                             lineNumber: 386,
@@ -982,7 +982,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lu
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/icons/circle-check.js [app-ssr] (ecmascript) <export default as CheckCircle2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__XCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/icons/circle-x.js [app-ssr] (ecmascript) <export default as XCircle>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$flag$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Flag$3e$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/icons/flag.js [app-ssr] (ecmascript) <export default as Flag>");
-"use client";
+'use client';
 ;
 ;
 ;
@@ -990,270 +990,282 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lu
 ;
 const severityConfig = {
     critical: {
-        color: "destructive",
-        label: "Critical"
+        color: 'destructive',
+        label: 'Critical'
     },
     high: {
-        color: "secondary",
-        label: "High"
+        color: 'secondary',
+        label: 'High'
     },
     medium: {
-        color: "accent",
-        label: "Medium"
+        color: 'accent',
+        label: 'Medium'
     },
     low: {
-        color: "muted",
-        label: "Low"
+        color: 'muted',
+        label: 'Low'
     }
 };
 function TweetList({ tweets, onSelectTweet, selectedTweetId, verificationStatuses, sentToAdmin }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "space-y-2",
         children: tweets.map((tweet)=>{
-            const status = verificationStatuses.get(tweet.id) || "unverified";
-            let borderColor = "border-border";
-            let bgColor = "";
-            if (status === "verified_true") {
-                borderColor = "border-green-500";
-                bgColor = "bg-green-50 dark:bg-green-950/30";
-            } else if (status === "verified_false") {
-                borderColor = "border-red-500";
-                bgColor = "bg-red-50 dark:bg-red-950/30";
+            const status = verificationStatuses.get(tweet.id) || 'unverified';
+            let borderColor = 'border-border';
+            let bgColor = '';
+            if (status === 'verified_true') {
+                borderColor = 'border-green-500';
+                bgColor = 'bg-green-50 dark:bg-green-950/30';
+            } else if (status === 'verified_false') {
+                borderColor = 'border-red-500';
+                bgColor = 'bg-red-50 dark:bg-red-950/30';
             } else if (selectedTweetId === tweet.id) {
-                borderColor = "border-primary";
-                bgColor = "bg-primary/5";
+                borderColor = 'border-primary';
+                bgColor = 'bg-primary/5';
             }
             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
                 "data-tweet-id": tweet.id,
                 onClick: ()=>onSelectTweet(tweet),
-                className: `cursor-pointer transition-all hover:shadow-md border-2 ${borderColor} ${bgColor} p-3`,
+                className: `cursor-pointer transition-all hover:shadow-lg hover:scale-[1.01] border-2 ${borderColor} ${bgColor} overflow-hidden`,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex flex-col gap-2",
+                    className: "flex gap-3 p-3",
                     children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex items-start gap-2",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Avatar"], {
-                                    className: "h-7 w-7 flex-shrink-0",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarImage"], {
-                                            src: tweet.avatar || "/placeholder.svg"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                            lineNumber: 59,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
-                                            children: tweet.author[0]
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                            lineNumber: 60,
-                                            columnNumber: 19
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                    lineNumber: 58,
-                                    columnNumber: 17
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex-1 min-w-0",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "font-semibold text-xs leading-tight",
-                                            children: tweet.author
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                            lineNumber: 64,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-xs text-muted-foreground",
-                                            children: tweet.timestamp
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                            lineNumber: 65,
-                                            columnNumber: 19
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                    lineNumber: 63,
-                                    columnNumber: 17
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
-                                    variant: "outline",
-                                    className: `text-xs flex-shrink-0 ${severityConfig[tweet.severity].color === "destructive" ? "border-destructive/50 bg-destructive/10 text-destructive" : severityConfig[tweet.severity].color === "secondary" ? "border-secondary/50 bg-secondary/10 text-secondary" : "border-accent/50 bg-accent/10 text-accent"}`,
-                                    children: severityConfig[tweet.severity].label
-                                }, void 0, false, {
-                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                    lineNumber: 68,
-                                    columnNumber: 17
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/components/dashboard/tweet-list.tsx",
-                            lineNumber: 57,
-                            columnNumber: 15
-                        }, this),
                         tweet.image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "rounded overflow-hidden border border-border bg-muted h-20 w-full",
+                            className: "w-28 h-28 flex-shrink-0 rounded-lg overflow-hidden border border-border bg-muted shadow-sm",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                src: tweet.image || "/placeholder.svg",
+                                src: tweet.image || '/placeholder.svg',
                                 alt: "Tweet preview",
-                                className: "w-full h-full object-cover"
+                                className: "w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                             }, void 0, false, {
                                 fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                lineNumber: 84,
+                                lineNumber: 61,
                                 columnNumber: 19
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/dashboard/tweet-list.tsx",
-                            lineNumber: 83,
+                            lineNumber: 60,
                             columnNumber: 17
                         }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-xs text-foreground line-clamp-2 leading-snug",
-                            children: tweet.content
-                        }, void 0, false, {
-                            fileName: "[project]/components/dashboard/tweet-list.tsx",
-                            lineNumber: 93,
-                            columnNumber: 15
-                        }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex flex-wrap items-center gap-2 text-xs text-muted-foreground",
+                            className: "flex-1 min-w-0 flex flex-col gap-2",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center gap-1",
+                                    className: "flex items-start gap-2",
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$thumbs$2d$up$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ThumbsUp$3e$__["ThumbsUp"], {
-                                            className: "w-3 h-3"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                            lineNumber: 98,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            children: tweet.votes
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                            lineNumber: 99,
-                                            columnNumber: 19
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                    lineNumber: 97,
-                                    columnNumber: 17
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex items-center gap-1",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
-                                            className: "w-3 h-3"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                            lineNumber: 102,
-                                            columnNumber: 19
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Avatar"], {
+                                            className: "h-8 w-8 flex-shrink-0 ring-2 ring-background shadow-sm",
                                             children: [
-                                                tweet.distance,
-                                                " km"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                            lineNumber: 103,
-                                            columnNumber: 19
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                    lineNumber: 101,
-                                    columnNumber: 17
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex gap-1 ml-auto",
-                                    children: [
-                                        status === "verified_true" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
-                                            className: "bg-green-600 text-white text-xs",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
-                                                    className: "w-3 h-3 mr-1"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarImage"], {
+                                                    src: tweet.avatar || '/placeholder.svg'
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                                    lineNumber: 109,
-                                                    columnNumber: 23
+                                                    lineNumber: 74,
+                                                    columnNumber: 21
                                                 }, this),
-                                                "True"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$avatar$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AvatarFallback"], {
+                                                    className: "text-xs font-semibold",
+                                                    children: tweet.author[0]
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                                    lineNumber: 75,
+                                                    columnNumber: 21
+                                                }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                            lineNumber: 108,
-                                            columnNumber: 21
+                                            lineNumber: 73,
+                                            columnNumber: 19
                                         }, this),
-                                        status === "verified_false" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
-                                            className: "bg-red-600 text-white text-xs",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex-1 min-w-0",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__XCircle$3e$__["XCircle"], {
-                                                    className: "w-3 h-3 mr-1"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "font-semibold text-sm leading-tight truncate",
+                                                    children: tweet.author
                                                 }, void 0, false, {
+                                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                                    lineNumber: 81,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-muted-foreground",
+                                                    children: tweet.timestamp
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                                    lineNumber: 84,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                            lineNumber: 80,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
+                                            variant: "outline",
+                                            className: `text-xs flex-shrink-0 font-medium ${severityConfig[tweet.severity].color === 'destructive' ? 'border-red-500 bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400' : severityConfig[tweet.severity].color === 'secondary' ? 'border-orange-500 bg-orange-50 dark:bg-orange-950/30 text-orange-700 dark:text-orange-400' : 'border-yellow-500 bg-yellow-50 dark:bg-yellow-950/30 text-yellow-700 dark:text-yellow-400'}`,
+                                            children: severityConfig[tweet.severity].label
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                            lineNumber: 89,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                    lineNumber: 72,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-sm text-foreground line-clamp-2 leading-relaxed",
+                                    children: tweet.content
+                                }, void 0, false, {
+                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                    lineNumber: 103,
+                                    columnNumber: 17
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex flex-wrap items-center gap-3 text-xs text-muted-foreground mt-auto",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center gap-1.5 bg-muted/50 px-2 py-1 rounded-md",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$thumbs$2d$up$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ThumbsUp$3e$__["ThumbsUp"], {
+                                                    className: "w-3.5 h-3.5"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                                    lineNumber: 110,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "font-medium",
+                                                    children: tweet.votes
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                                    lineNumber: 111,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                            lineNumber: 109,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center gap-1.5 bg-muted/50 px-2 py-1 rounded-md",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
+                                                    className: "w-3.5 h-3.5"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                                    lineNumber: 114,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "font-medium",
+                                                    children: [
+                                                        tweet.distance,
+                                                        " km"
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/components/dashboard/tweet-list.tsx",
                                                     lineNumber: 115,
-                                                    columnNumber: 23
-                                                }, this),
-                                                "False"
+                                                    columnNumber: 21
+                                                }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                            lineNumber: 114,
-                                            columnNumber: 21
+                                            lineNumber: 113,
+                                            columnNumber: 19
                                         }, this),
-                                        status === "unverified" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
-                                            variant: "outline",
-                                            className: "text-xs",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex gap-1.5 ml-auto",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$flag$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Flag$3e$__["Flag"], {
-                                                    className: "w-3 h-3 mr-1"
-                                                }, void 0, false, {
+                                                status === 'verified_true' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
+                                                    className: "bg-green-600 hover:bg-green-700 text-white text-xs font-medium shadow-sm",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__["CheckCircle2"], {
+                                                            className: "w-3 h-3 mr-1"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                                            lineNumber: 121,
+                                                            columnNumber: 25
+                                                        }, this),
+                                                        "Verified True"
+                                                    ]
+                                                }, void 0, true, {
                                                     fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                                    lineNumber: 121,
+                                                    lineNumber: 120,
                                                     columnNumber: 23
                                                 }, this),
-                                                "Unverified"
+                                                status === 'verified_false' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
+                                                    className: "bg-red-600 hover:bg-red-700 text-white text-xs font-medium shadow-sm",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__XCircle$3e$__["XCircle"], {
+                                                            className: "w-3 h-3 mr-1"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                                            lineNumber: 127,
+                                                            columnNumber: 25
+                                                        }, this),
+                                                        "Verified False"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                                    lineNumber: 126,
+                                                    columnNumber: 23
+                                                }, this),
+                                                status === 'unverified' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
+                                                    variant: "outline",
+                                                    className: "text-xs border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 font-medium",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$flag$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Flag$3e$__["Flag"], {
+                                                            className: "w-3 h-3 mr-1"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                                            lineNumber: 135,
+                                                            columnNumber: 25
+                                                        }, this),
+                                                        "Pending"
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/components/dashboard/tweet-list.tsx",
+                                                    lineNumber: 132,
+                                                    columnNumber: 23
+                                                }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                            lineNumber: 120,
-                                            columnNumber: 21
+                                            lineNumber: 118,
+                                            columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/tweet-list.tsx",
-                                    lineNumber: 106,
+                                    lineNumber: 108,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/dashboard/tweet-list.tsx",
-                            lineNumber: 96,
+                            lineNumber: 70,
                             columnNumber: 15
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/dashboard/tweet-list.tsx",
-                    lineNumber: 55,
+                    lineNumber: 57,
                     columnNumber: 13
                 }, this)
             }, tweet.id, false, {
                 fileName: "[project]/components/dashboard/tweet-list.tsx",
-                lineNumber: 49,
+                lineNumber: 52,
                 columnNumber: 11
             }, this);
         })
     }, void 0, false, {
         fileName: "[project]/components/dashboard/tweet-list.tsx",
-        lineNumber: 32,
+        lineNumber: 35,
         columnNumber: 5
     }, this);
 }
@@ -2291,16 +2303,16 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lu
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bell$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Bell$3e$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/icons/bell.js [app-ssr] (ecmascript) <export default as Bell>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chart$2d$column$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__BarChart3$3e$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/lucide-react@0.454.0_react@19.2.0/node_modules/lucide-react/dist/esm/icons/chart-column.js [app-ssr] (ecmascript) <export default as BarChart3>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.0.7_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-"use client";
+'use client';
 ;
 ;
 ;
 ;
 function DashboardHeader({ analyst, onLogout }) {
     const [showNotificationsMenu, setShowNotificationsMenu] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const currentTime = new Date().toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
+    const currentTime = new Date().toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
         hour12: true
     });
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
@@ -2317,22 +2329,22 @@ function DashboardHeader({ analyst, onLogout }) {
                                 className: "w-6 h-6 text-primary-foreground"
                             }, void 0, false, {
                                 fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                lineNumber: 26,
+                                lineNumber: 29,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                            lineNumber: 25,
+                            lineNumber: 28,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                                     className: "text-2xl font-bold text-foreground",
-                                    children: "AquaX"
+                                    children: "Sangam"
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                    lineNumber: 29,
+                                    lineNumber: 32,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2340,19 +2352,19 @@ function DashboardHeader({ analyst, onLogout }) {
                                     children: "Analyst Dashboard"
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                    lineNumber: 30,
+                                    lineNumber: 33,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                            lineNumber: 28,
+                            lineNumber: 31,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                    lineNumber: 24,
+                    lineNumber: 27,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2365,20 +2377,20 @@ function DashboardHeader({ analyst, onLogout }) {
                                     className: "w-4 h-4"
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                    lineNumber: 36,
+                                    lineNumber: 39,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     children: currentTime
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                    lineNumber: 37,
+                                    lineNumber: 40,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                            lineNumber: 35,
+                            lineNumber: 38,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2394,20 +2406,20 @@ function DashboardHeader({ analyst, onLogout }) {
                                             className: "w-5 h-5"
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                            lineNumber: 47,
+                                            lineNumber: 49,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "absolute top-1 right-1 w-2 h-2 bg-destructive rounded-full"
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                            lineNumber: 48,
+                                            lineNumber: 50,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                    lineNumber: 41,
+                                    lineNumber: 44,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2419,7 +2431,7 @@ function DashboardHeader({ analyst, onLogout }) {
                                             className: "w-5 h-5 mr-2"
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                            lineNumber: 51,
+                                            lineNumber: 56,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2427,19 +2439,19 @@ function DashboardHeader({ analyst, onLogout }) {
                                             children: "Analytics"
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                            lineNumber: 52,
+                                            lineNumber: 57,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                    lineNumber: 50,
+                                    lineNumber: 52,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                            lineNumber: 40,
+                            lineNumber: 43,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2453,7 +2465,7 @@ function DashboardHeader({ analyst, onLogout }) {
                                             children: analyst.name
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                            lineNumber: 59,
+                                            lineNumber: 64,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2461,13 +2473,13 @@ function DashboardHeader({ analyst, onLogout }) {
                                             children: analyst.phone
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                            lineNumber: 60,
+                                            lineNumber: 67,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                    lineNumber: 58,
+                                    lineNumber: 63,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2480,7 +2492,7 @@ function DashboardHeader({ analyst, onLogout }) {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                            lineNumber: 69,
+                                            lineNumber: 75,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2488,36 +2500,36 @@ function DashboardHeader({ analyst, onLogout }) {
                                             children: "Logout"
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                            lineNumber: 70,
+                                            lineNumber: 76,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                                    lineNumber: 63,
+                                    lineNumber: 70,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                            lineNumber: 56,
+                            lineNumber: 61,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/dashboard/dashboard-header.tsx",
-                    lineNumber: 34,
+                    lineNumber: 37,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/dashboard/dashboard-header.tsx",
-            lineNumber: 23,
+            lineNumber: 26,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/dashboard/dashboard-header.tsx",
-        lineNumber: 22,
+        lineNumber: 25,
         columnNumber: 5
     }, this);
 }
@@ -3101,7 +3113,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dashboard$2f$m
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dashboard$2f$stats$2d$overview$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dashboard/stats-overview.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dashboard$2f$notification$2d$stack$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/dashboard/notification-stack.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/card.tsx [app-ssr] (ecmascript)");
-"use client";
+'use client';
 ;
 ;
 ;
@@ -3113,170 +3125,170 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$
 ;
 function DashboardPage({ analyst, onLogout }) {
     const [selectedTweet, setSelectedTweet] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [sortBy, setSortBy] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("votes");
+    const [sortBy, setSortBy] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('votes');
     const [verificationStatuses, setVerificationStatuses] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(new Map());
     const [sentToAdminTweets, setSentToAdminTweets] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(new Set());
     const [notifications, setNotifications] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const tweetListRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const tweets = [
         {
-            id: "1",
-            author: "John Smith",
-            phone: "+1-555-0101",
-            avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=John",
-            content: "Severe flooding reported in the harbor district. Water level rising rapidly. Emergency response needed immediately.",
-            image: "/flooding-disaster-harbor.jpg",
-            timestamp: "2 hours ago",
+            id: '1',
+            author: 'John Smith',
+            phone: '+1-555-0101',
+            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=John',
+            content: 'Severe flooding reported in the harbor district. Water level rising rapidly. Emergency response needed immediately.',
+            image: '/flooding-disaster-harbor.jpg',
+            timestamp: '2 hours ago',
             latitude: 40.7128,
             longitude: -74.006,
             votes: 342,
             distance: 2.3,
-            severity: "critical",
-            verificationStatus: "unverified",
+            severity: 'critical',
+            verificationStatus: 'unverified',
             aiReport: {
                 credibilityScore: 94,
                 sources: [
                     {
-                        title: "Harbor Authority Reports Flooding",
-                        url: "https://harbor.gov/reports",
-                        domain: "harbor.gov"
+                        title: 'Harbor Authority Reports Flooding',
+                        url: 'https://harbor.gov/reports',
+                        domain: 'harbor.gov'
                     },
                     {
-                        title: "Reddit: r/flooding discussions",
-                        url: "https://reddit.com/r/flooding",
-                        domain: "reddit.com"
+                        title: 'Reddit: r/flooding discussions',
+                        url: 'https://reddit.com/r/flooding',
+                        domain: 'reddit.com'
                     },
                     {
-                        title: "Twitter: @WeatherAlert updates",
-                        url: "https://twitter.com/weatheralert",
-                        domain: "twitter.com"
+                        title: 'Twitter: @WeatherAlert updates',
+                        url: 'https://twitter.com/weatheralert',
+                        domain: 'twitter.com'
                     }
                 ],
-                analysis: "Multiple corroborating reports from official sources and social media. Consistent timestamps and location data suggest high credibility."
+                analysis: 'Multiple corroborating reports from official sources and social media. Consistent timestamps and location data suggest high credibility.'
             }
         },
         {
-            id: "2",
-            author: "Maria Garcia",
-            phone: "+1-555-0102",
-            avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Maria",
-            content: "Oil spill detected near coastal zone. Marine life at risk. Containment efforts underway.",
-            image: "/oil-spill-ocean-pollution.jpg",
-            timestamp: "1 hour ago",
+            id: '2',
+            author: 'Maria Garcia',
+            phone: '+1-555-0102',
+            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Maria',
+            content: 'Oil spill detected near coastal zone. Marine life at risk. Containment efforts underway.',
+            image: '/oil-spill-ocean-pollution.jpg',
+            timestamp: '1 hour ago',
             latitude: 40.715,
             longitude: -74.002,
             votes: 298,
             distance: 3.1,
-            severity: "critical",
-            verificationStatus: "unverified",
+            severity: 'critical',
+            verificationStatus: 'unverified',
             aiReport: {
                 credibilityScore: 87,
                 sources: [
                     {
-                        title: "EPA Oil Spill Reports",
-                        url: "https://epa.gov/oil-spill",
-                        domain: "epa.gov"
+                        title: 'EPA Oil Spill Reports',
+                        url: 'https://epa.gov/oil-spill',
+                        domain: 'epa.gov'
                     },
                     {
-                        title: "X: Environmental agencies",
-                        url: "https://x.com/envagencies",
-                        domain: "x.com"
+                        title: 'X: Environmental agencies',
+                        url: 'https://x.com/envagencies',
+                        domain: 'x.com'
                     }
                 ],
-                analysis: "Confirmed by environmental monitoring agencies. Some media coverage with consistent details about location and scale."
+                analysis: 'Confirmed by environmental monitoring agencies. Some media coverage with consistent details about location and scale.'
             }
         },
         {
-            id: "3",
-            author: "Ahmed Hassan",
-            phone: "+1-555-0103",
-            avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ahmed",
-            content: "Strong rip currents warning issued. Multiple swimmers rescued by coast guard.",
-            image: "/ocean-rip-currents-warning.jpg",
-            timestamp: "3 hours ago",
+            id: '3',
+            author: 'Ahmed Hassan',
+            phone: '+1-555-0103',
+            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Ahmed',
+            content: 'Strong rip currents warning issued. Multiple swimmers rescued by coast guard.',
+            image: '/ocean-rip-currents-warning.jpg',
+            timestamp: '3 hours ago',
             latitude: 40.72,
             longitude: -74.008,
             votes: 187,
             distance: 4.5,
-            severity: "high",
-            verificationStatus: "unverified",
+            severity: 'high',
+            verificationStatus: 'unverified',
             aiReport: {
                 credibilityScore: 76,
                 sources: [
                     {
-                        title: "Coast Guard Alerts",
-                        url: "https://uscg.gov/alerts",
-                        domain: "uscg.gov"
+                        title: 'Coast Guard Alerts',
+                        url: 'https://uscg.gov/alerts',
+                        domain: 'uscg.gov'
                     },
                     {
-                        title: "Reddit: r/swimming",
-                        url: "https://reddit.com/r/swimming",
-                        domain: "reddit.com"
+                        title: 'Reddit: r/swimming',
+                        url: 'https://reddit.com/r/swimming',
+                        domain: 'reddit.com'
                     }
                 ],
-                analysis: "Partially verified through official channels. Some unconfirmed details about number of rescues."
+                analysis: 'Partially verified through official channels. Some unconfirmed details about number of rescues.'
             }
         },
         {
-            id: "4",
-            author: "Lisa Chen",
-            phone: "+1-555-0104",
-            avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa",
-            content: "Coral bleaching event observed in reef area. Water temperature anomaly detected.",
-            image: "/coral-bleaching-event-ocean-reef.jpg",
-            timestamp: "4 hours ago",
+            id: '4',
+            author: 'Lisa Chen',
+            phone: '+1-555-0104',
+            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa',
+            content: 'Coral bleaching event observed in reef area. Water temperature anomaly detected.',
+            image: '/coral-bleaching-event-ocean-reef.jpg',
+            timestamp: '4 hours ago',
             latitude: 40.73,
             longitude: -73.99,
             votes: 156,
             distance: 5.2,
-            severity: "high",
-            verificationStatus: "unverified",
+            severity: 'high',
+            verificationStatus: 'unverified',
             aiReport: {
                 credibilityScore: 82,
                 sources: [
                     {
-                        title: "Marine Biology Institute",
-                        url: "https://marinebio.org",
-                        domain: "marinebio.org"
+                        title: 'Marine Biology Institute',
+                        url: 'https://marinebio.org',
+                        domain: 'marinebio.org'
                     },
                     {
-                        title: "X: Ocean Research",
-                        url: "https://x.com/oceanresearch",
-                        domain: "x.com"
+                        title: 'X: Ocean Research',
+                        url: 'https://x.com/oceanresearch',
+                        domain: 'x.com'
                     }
                 ],
                 analysis: "Consistent with seasonal patterns. Temperature readings align with research institutions' data."
             }
         },
         {
-            id: "5",
-            author: "Robert Wilson",
-            phone: "+1-555-0105",
-            avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Robert",
-            content: "Unusual algae bloom in coastal waters. Testing samples for toxicity.",
-            image: "/algae-bloom-coastal-waters-ocean.jpg",
-            timestamp: "5 hours ago",
+            id: '5',
+            author: 'Robert Wilson',
+            phone: '+1-555-0105',
+            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Robert',
+            content: 'Unusual algae bloom in coastal waters. Testing samples for toxicity.',
+            image: '/algae-bloom-coastal-waters-ocean.jpg',
+            timestamp: '5 hours ago',
             latitude: 40.74,
             longitude: -74.01,
             votes: 92,
             distance: 6.8,
-            severity: "medium",
-            verificationStatus: "unverified",
+            severity: 'medium',
+            verificationStatus: 'unverified',
             aiReport: {
                 credibilityScore: 71,
                 sources: [
                     {
-                        title: "Water Quality Monitoring",
-                        url: "https://waterquality.gov",
-                        domain: "waterquality.gov"
+                        title: 'Water Quality Monitoring',
+                        url: 'https://waterquality.gov',
+                        domain: 'waterquality.gov'
                     },
                     {
-                        title: "Reddit: r/oceanlife",
-                        url: "https://reddit.com/r/oceanlife",
-                        domain: "reddit.com"
+                        title: 'Reddit: r/oceanlife',
+                        url: 'https://reddit.com/r/oceanlife',
+                        domain: 'reddit.com'
                     }
                 ],
-                analysis: "Some concerns about toxicity claims without lab confirmation. Sources are limited."
+                analysis: 'Some concerns about toxicity claims without lab confirmation. Sources are limited.'
             }
         }
     ];
@@ -3284,7 +3296,7 @@ function DashboardPage({ analyst, onLogout }) {
         return [
             ...tweets
         ].sort((a, b)=>{
-            if (sortBy === "votes") {
+            if (sortBy === 'votes') {
                 return b.votes - a.votes;
             } else {
                 return a.distance - b.distance;
@@ -3295,12 +3307,12 @@ function DashboardPage({ analyst, onLogout }) {
     ]);
     const handleVerifyTweet = (isTrue)=>{
         if (!selectedTweet) return;
-        const status = isTrue ? "verified_true" : "verified_false";
+        const status = isTrue ? 'verified_true' : 'verified_false';
         setVerificationStatuses(new Map(verificationStatuses).set(selectedTweet.id, status));
         const notification = {
             id: Date.now().toString(),
-            message: `Tweet marked as ${isTrue ? "verified true" : "verified false"}`,
-            type: isTrue ? "verified" : "critical"
+            message: `Tweet marked as ${isTrue ? 'verified true' : 'verified false'}`,
+            type: isTrue ? 'verified' : 'critical'
         };
         setNotifications((prev)=>[
                 ...prev,
@@ -3319,7 +3331,7 @@ function DashboardPage({ analyst, onLogout }) {
         const notification = {
             id: Date.now().toString(),
             message: `Tweet sent to administrator for review`,
-            type: "verified"
+            type: 'verified'
         };
         setNotifications((prev)=>[
                 ...prev,
@@ -3335,15 +3347,15 @@ function DashboardPage({ analyst, onLogout }) {
             const tweetElement = tweetListRef.current?.querySelector(`[data-tweet-id="${tweet.id}"]`);
             if (tweetElement) {
                 tweetElement.scrollIntoView({
-                    behavior: "smooth",
-                    block: "nearest"
+                    behavior: 'smooth',
+                    block: 'nearest'
                 });
             }
         }, 0);
     };
     const stats = {
         total: tweets.length,
-        criticalCount: tweets.filter((t)=>t.severity === "critical").length,
+        criticalCount: tweets.filter((t)=>t.severity === 'critical').length,
         verified: Array.from(verificationStatuses.values()).length,
         sentToAdmin: sentToAdminTweets.size
     };
@@ -3355,14 +3367,14 @@ function DashboardPage({ analyst, onLogout }) {
                 onLogout: onLogout
             }, void 0, false, {
                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                lineNumber: 235,
+                lineNumber: 309,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dashboard$2f$notification$2d$stack$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                 notifications: notifications
             }, void 0, false, {
                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                lineNumber: 236,
+                lineNumber: 310,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -3379,12 +3391,12 @@ function DashboardPage({ analyst, onLogout }) {
                                     onSelectTweet: handleMapHotspotClick
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                    lineNumber: 243,
+                                    lineNumber: 317,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                lineNumber: 242,
+                                lineNumber: 316,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3393,29 +3405,29 @@ function DashboardPage({ analyst, onLogout }) {
                                     stats: stats
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                    lineNumber: 248,
+                                    lineNumber: 326,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                lineNumber: 247,
+                                lineNumber: 325,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                        lineNumber: 240,
+                        lineNumber: 314,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex-1 flex overflow-hidden gap-0",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: `flex flex-col ${selectedTweet ? "w-2/5" : "w-full"} transition-all duration-300`,
+                                className: `flex flex-col ${selectedTweet ? 'w-2/5' : 'w-full'} transition-all duration-300`,
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Card"], {
                                     className: "h-full border-0 rounded-none flex flex-col",
                                     style: selectedTweet ? {
-                                        borderRight: "1px solid var(--border)"
+                                        borderRight: '1px solid var(--border)'
                                     } : {},
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardHeader"], {
@@ -3430,7 +3442,7 @@ function DashboardPage({ analyst, onLogout }) {
                                                                 children: "Tweets in Area"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                                                lineNumber: 263,
+                                                                lineNumber: 345,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardDescription"], {
@@ -3438,51 +3450,51 @@ function DashboardPage({ analyst, onLogout }) {
                                                                 children: "40 km radius"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                                                lineNumber: 264,
+                                                                lineNumber: 346,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                                        lineNumber: 262,
+                                                        lineNumber: 344,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         className: "flex gap-1",
                                                         children: [
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                onClick: ()=>setSortBy("votes"),
-                                                                className: `px-2 py-1 text-xs rounded border transition-colors ${sortBy === "votes" ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-primary/50"}`,
+                                                                onClick: ()=>setSortBy('votes'),
+                                                                className: `px-2 py-1 text-xs rounded border transition-colors ${sortBy === 'votes' ? 'bg-primary text-primary-foreground border-primary' : 'border-border hover:border-primary/50'}`,
                                                                 children: "Votes"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                                                lineNumber: 267,
+                                                                lineNumber: 351,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                                onClick: ()=>setSortBy("distance"),
-                                                                className: `px-2 py-1 text-xs rounded border transition-colors ${sortBy === "distance" ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-primary/50"}`,
+                                                                onClick: ()=>setSortBy('distance'),
+                                                                className: `px-2 py-1 text-xs rounded border transition-colors ${sortBy === 'distance' ? 'bg-primary text-primary-foreground border-primary' : 'border-border hover:border-primary/50'}`,
                                                                 children: "Distance"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                                                lineNumber: 277,
+                                                                lineNumber: 360,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                                        lineNumber: 266,
+                                                        lineNumber: 350,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                                lineNumber: 261,
+                                                lineNumber: 343,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                            lineNumber: 260,
+                                            lineNumber: 342,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -3496,60 +3508,60 @@ function DashboardPage({ analyst, onLogout }) {
                                                 sentToAdmin: sentToAdminTweets
                                             }, void 0, false, {
                                                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                                lineNumber: 291,
+                                                lineNumber: 375,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                            lineNumber: 290,
+                                            lineNumber: 372,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                    lineNumber: 256,
+                                    lineNumber: 337,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                lineNumber: 255,
+                                lineNumber: 333,
                                 columnNumber: 11
                             }, this),
                             selectedTweet && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "w-3/5 overflow-hidden animate-in slide-in-from-right-96 duration-300",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$7_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$dashboard$2f$tweet$2d$details$2d$panel$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     tweet: selectedTweet,
-                                    verificationStatus: verificationStatuses.get(selectedTweet.id) || "unverified",
+                                    verificationStatus: verificationStatuses.get(selectedTweet.id) || 'unverified',
                                     isSentToAdmin: sentToAdminTweets.has(selectedTweet.id),
                                     onVerify: handleVerifyTweet,
                                     onSendToAdmin: handleSendToAdmin,
                                     onClose: ()=>setSelectedTweet(null)
                                 }, void 0, false, {
                                     fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                    lineNumber: 305,
+                                    lineNumber: 389,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                                lineNumber: 304,
+                                lineNumber: 388,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                        lineNumber: 253,
+                        lineNumber: 331,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/dashboard/dashboard-page.tsx",
-                lineNumber: 238,
+                lineNumber: 312,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/dashboard/dashboard-page.tsx",
-        lineNumber: 234,
+        lineNumber: 308,
         columnNumber: 5
     }, this);
 }
