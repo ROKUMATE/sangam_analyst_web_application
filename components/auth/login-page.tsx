@@ -185,7 +185,7 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
               <Waves className="w-8 h-8 text-primary-foreground" />
             </div>
           </div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">AquaX</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-2">Sangam</h1>
           <p className="text-sm text-muted-foreground">
             Ocean Disaster Management Platform
           </p>
@@ -383,7 +383,9 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
         {/* Footer Info */}
         <div className="mt-8 text-center text-xs text-muted-foreground space-y-2">
           <p>For security purposes, all communications are encrypted</p>
-          <p className="text-xs">© 2025 AquaX Platform. All rights reserved.</p>
+          <p className="text-xs">
+            © 2025 Sangam Platform. All rights reserved.
+          </p>
         </div>
       </div>
     </div>

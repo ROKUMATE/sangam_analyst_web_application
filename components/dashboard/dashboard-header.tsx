@@ -1,22 +1,25 @@
-"use client"
+'use client';
 
-import { Button } from "@/components/ui/button"
-import { Waves, LogOut, Clock, Bell, BarChart3 } from "lucide-react"
-import { useState } from "react"
+import { Button } from '@/components/ui/button';
+import { Waves, LogOut, Clock, Bell, BarChart3 } from 'lucide-react';
+import { useState } from 'react';
 
 interface DashboardHeaderProps {
-  analyst: { name: string; phone: string } | null
-  onLogout: () => void
+  analyst: { name: string; phone: string } | null;
+  onLogout: () => void;
 }
 
-export default function DashboardHeader({ analyst, onLogout }: DashboardHeaderProps) {
-  const [showNotificationsMenu, setShowNotificationsMenu] = useState(false)
+export default function DashboardHeader({
+  analyst,
+  onLogout,
+}: DashboardHeaderProps) {
+  const [showNotificationsMenu, setShowNotificationsMenu] = useState(false);
 
-  const currentTime = new Date().toLocaleTimeString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
+  const currentTime = new Date().toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
     hour12: true,
-  })
+  });
 
   return (
     <header className="bg-card dark:bg-card border-b border-border shadow-sm sticky top-0 z-40">
@@ -26,7 +29,7 @@ export default function DashboardHeader({ analyst, onLogout }: DashboardHeaderPr
             <Waves className="w-6 h-6 text-primary-foreground" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-foreground">AquaX</h1>
+            <h1 className="text-2xl font-bold text-foreground">Sangam</h1>
             <p className="text-xs text-muted-foreground">Analyst Dashboard</p>
           </div>
         </div>
@@ -42,12 +45,14 @@ export default function DashboardHeader({ analyst, onLogout }: DashboardHeaderPr
               variant="ghost"
               size="sm"
               className="relative"
-              onClick={() => setShowNotificationsMenu(!showNotificationsMenu)}
-            >
+              onClick={() => setShowNotificationsMenu(!showNotificationsMenu)}>
               <Bell className="w-5 h-5" />
               <span className="absolute top-1 right-1 w-2 h-2 bg-destructive rounded-full" />
             </Button>
-            <Button variant="ghost" size="sm" className="text-foreground hover:bg-muted">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-foreground hover:bg-muted">
               <BarChart3 className="w-5 h-5 mr-2" />
               <span className="hidden sm:inline text-sm">Analytics</span>
             </Button>
@@ -56,7 +61,9 @@ export default function DashboardHeader({ analyst, onLogout }: DashboardHeaderPr
           <div className="flex items-center gap-4">
             {analyst && (
               <div className="text-right hidden sm:block">
-                <p className="text-sm font-semibold text-foreground">{analyst.name}</p>
+                <p className="text-sm font-semibold text-foreground">
+                  {analyst.name}
+                </p>
                 <p className="text-xs text-muted-foreground">{analyst.phone}</p>
               </div>
             )}
@@ -64,8 +71,7 @@ export default function DashboardHeader({ analyst, onLogout }: DashboardHeaderPr
               variant="outline"
               size="sm"
               onClick={onLogout}
-              className="flex items-center gap-2 border-border text-foreground hover:bg-muted bg-transparent"
-            >
+              className="flex items-center gap-2 border-border text-foreground hover:bg-muted bg-transparent">
               <LogOut className="w-4 h-4" />
               <span className="hidden sm:inline">Logout</span>
             </Button>
@@ -73,5 +79,5 @@ export default function DashboardHeader({ analyst, onLogout }: DashboardHeaderPr
         </div>
       </div>
     </header>
-  )
+  );
 }
