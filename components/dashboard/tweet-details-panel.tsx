@@ -48,6 +48,8 @@ export default function TweetDetailsPanel({
 }: TweetDetailsPanelProps) {
   const [showManualVerification, setShowManualVerification] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
+  const [showAiReport, setShowAiReport] = useState(false);
+  const [isLoadingAiReport, setIsLoadingAiReport] = useState(false);
 
   // Check if tweet is already verified from API
   const isVerifiedFromAPI = tweet.verificationStatus === 'verified_true';
@@ -140,27 +142,35 @@ export default function TweetDetailsPanel({
           <p>Lon: {tweet.longitude.toFixed(4)}</p>
         </div>
 
+        {/* Credibility Score - Always visible */}
         {tweet.aiReport && (
+          <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
+            <h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
+              <Zap className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              Credibility Score
+            </h4>
+            <div className="flex items-center gap-2">
+              <div className="flex-1 bg-muted rounded-full h-2 overflow-hidden">
+                <div
+                  className="bg-gradient-to-r from-primary to-secondary h-full"
+                  style={{ width: `${tweet.aiReport.credibilityScore}%` }}
+                />
+              </div>
+              <span className="font-semibold text-sm">
+                {tweet.aiReport.credibilityScore}%
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* Full AI Report - Only visible after AI verification */}
+        {showAiReport && tweet.aiReport && (
           <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
             <h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
               <Zap className="w-4 h-4 text-blue-600 dark:text-blue-400" />
               AI Analysis Report
             </h4>
             <div className="space-y-2 text-xs">
-              <div>
-                <p className="text-muted-foreground">Credibility Score</p>
-                <div className="flex items-center gap-2 mt-1">
-                  <div className="flex-1 bg-muted rounded-full h-2 overflow-hidden">
-                    <div
-                      className="bg-gradient-to-r from-primary to-secondary h-full"
-                      style={{ width: `${tweet.aiReport.credibilityScore}%` }}
-                    />
-                  </div>
-                  <span className="font-semibold">
-                    {tweet.aiReport.credibilityScore}%
-                  </span>
-                </div>
-              </div>
               <p className="text-muted-foreground leading-relaxed">
                 {tweet.aiReport.analysis}
               </p>
@@ -203,15 +213,51 @@ export default function TweetDetailsPanel({
               </TabsList>
 
               <TabsContent value="ai" className="space-y-3 mt-3">
-                <p className="text-xs text-muted-foreground">
-                  Review the AI analysis report above and verify this tweet
-                </p>
-                <Button
-                  onClick={onVerify}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white text-sm">
-                  <CheckCircle2 className="w-4 h-4 mr-2" />
-                  Verify Tweet
-                </Button>
+                {!showAiReport ? (
+                  <>
+                    <p className="text-xs text-muted-foreground">
+                      Click to analyze this tweet with AI and get detailed
+                      verification report
+                    </p>
+                    <Button
+                      onClick={() => {
+                        setIsLoadingAiReport(true);
+                        // Simulate API call - replace with actual API call later
+                        // await verifyTweet(tweet.id, true);
+                        // const report = await getAiReport(tweet.id);
+                        setTimeout(() => {
+                          setShowAiReport(true);
+                          setIsLoadingAiReport(false);
+                        }, 1500);
+                      }}
+                      disabled={isLoadingAiReport}
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm">
+                      {isLoadingAiReport ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                          Analyzing...
+                        </>
+                      ) : (
+                        <>
+                          <Zap className="w-4 h-4 mr-2" />
+                          Verify with AI
+                        </>
+                      )}
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-xs text-muted-foreground">
+                      Review the AI analysis report above and verify this tweet
+                    </p>
+                    <Button
+                      onClick={onVerify}
+                      className="w-full bg-green-600 hover:bg-green-700 text-white text-sm">
+                      <CheckCircle2 className="w-4 h-4 mr-2" />
+                      Verify Tweet
+                    </Button>
+                  </>
+                )}
               </TabsContent>
 
               <TabsContent value="manual" className="space-y-3 mt-3">

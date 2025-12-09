@@ -221,3 +221,5 @@ https://developers.google.com/maps/documentation/javascript/error-messages#billi
 [02:23:33.856] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [02:23:38.789] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
 [02:23:38.789] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[02:36:45.547] Server  LOG      ✓ Compiled in 103ms
+[02:37:46.405] Server  LOG      ✓ Compiled in 50ms
