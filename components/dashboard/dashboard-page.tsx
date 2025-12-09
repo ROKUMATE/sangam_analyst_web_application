@@ -20,6 +20,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import {
   getNearbyTweets,
   verifyTweet,
+  sendTweetToAdmin,
   Tweet as APITweet,
 } from '@/lib/api-integration';
 import { clearAuthData } from '@/lib/utils/cookies';
@@ -41,6 +42,10 @@ export interface Tweet {
   verificationStatus: 'unverified' | 'verified_true' | 'verified_false';
   verifiedBy?: string;
   sentToAdmin?: boolean;
+  // Original API data needed for send to admin
+  hazardType?: string;
+  title?: string;
+  area?: string;
   aiReport?: {
     reportId?: string;
     title: string;
@@ -320,23 +325,70 @@ export default function DashboardPage({
     }
   };
 
-  const handleSendToAdmin = () => {
+  const handleSendToAdmin = async () => {
     if (!selectedTweet) return;
-    setSentToAdminTweets((prev) => new Set([...prev, selectedTweet.id]));
 
-    const notification: {
-      id: string;
-      message: string;
-      type: 'critical' | 'verified';
-    } = {
-      id: Date.now().toString(),
-      message: `Tweet sent to administrator for review`,
-      type: 'verified',
-    };
-    setNotifications((prev) => [...prev, notification]);
-    setTimeout(() => {
-      setNotifications((prev) => prev.filter((n) => n.id !== notification.id));
-    }, 3000);
+    console.log('🚀 Send to Admin initiated for tweet:', selectedTweet.id);
+
+    try {
+      // Call the send to admin API
+      const result = await sendTweetToAdmin(
+        selectedTweet,
+        selectedTweet.userId
+      );
+      console.log('✅ Successfully sent to admin:', result);
+
+      // Mark tweet as sent to admin
+      setSentToAdminTweets((prev) => new Set([...prev, selectedTweet.id]));
+
+      // Update the tweet in state
+      const updatedTweet = {
+        ...selectedTweet,
+        sentToAdmin: true,
+      };
+      setSelectedTweet(updatedTweet);
+      setTweets((prevTweets) =>
+        prevTweets.map((tweet) =>
+          tweet.id === selectedTweet.id ? updatedTweet : tweet
+        )
+      );
+
+      const notification: {
+        id: string;
+        message: string;
+        type: 'critical' | 'verified';
+      } = {
+        id: Date.now().toString(),
+        message: result.message || 'Tweet sent to administrator successfully',
+        type: 'verified',
+      };
+      setNotifications((prev) => [...prev, notification]);
+      setTimeout(() => {
+        setNotifications((prev) =>
+          prev.filter((n) => n.id !== notification.id)
+        );
+      }, 3000);
+    } catch (error) {
+      console.error('❌ Failed to send to admin:', error);
+      const errorNotification: {
+        id: string;
+        message: string;
+        type: 'critical' | 'verified';
+      } = {
+        id: Date.now().toString(),
+        message:
+          error instanceof Error
+            ? error.message
+            : 'Failed to send to administrator',
+        type: 'critical',
+      };
+      setNotifications((prev) => [...prev, errorNotification]);
+      setTimeout(() => {
+        setNotifications((prev) =>
+          prev.filter((n) => n.id !== errorNotification.id)
+        );
+      }, 3000);
+    }
   };
 
   const handleMapHotspotClick = (tweet: Tweet) => {

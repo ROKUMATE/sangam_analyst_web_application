@@ -1935,6 +1935,10 @@
     }
   }
 
+  .border-current {
+    border-color: currentColor;
+  }
+
   .border-cyan-200 {
     border-color: var(--color-cyan-200);
   }

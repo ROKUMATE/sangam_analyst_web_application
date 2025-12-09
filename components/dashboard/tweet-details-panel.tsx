@@ -51,6 +51,7 @@ export default function TweetDetailsPanel({
   const [showImageModal, setShowImageModal] = useState(false);
   const [showAiReport, setShowAiReport] = useState(false);
   const [isLoadingAiReport, setIsLoadingAiReport] = useState(false);
+  const [isSendingToAdmin, setIsSendingToAdmin] = useState(false);
   const [previewPost, setPreviewPost] = useState<Tweet | null>(null);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [isLoadingUserInfo, setIsLoadingUserInfo] = useState(false);
@@ -661,10 +662,29 @@ export default function TweetDetailsPanel({
             {/* Only show Send to Administrator button if verified */}
             {!isSentToAdmin && (
               <Button
-                onClick={onSendToAdmin}
-                className="w-full bg-secondary hover:bg-secondary/90 text-xs">
-                <Send className="w-3 h-3 mr-2" />
-                Send to Administrator
+                onClick={async () => {
+                  setIsSendingToAdmin(true);
+                  try {
+                    await onSendToAdmin();
+                  } catch (error) {
+                    console.error('Failed to send to admin:', error);
+                  } finally {
+                    setIsSendingToAdmin(false);
+                  }
+                }}
+                disabled={isSendingToAdmin}
+                className="w-full bg-secondary hover:bg-secondary/90 text-xs disabled:opacity-50">
+                {isSendingToAdmin ? (
+                  <>
+                    <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-current mr-2"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-3 h-3 mr-2" />
+                    Send to Administrator
+                  </>
+                )}
               </Button>
             )}
 

@@ -56,6 +56,10 @@ export interface Tweet {
   verificationStatus: 'unverified' | 'verified_true' | 'verified_false';
   verifiedBy?: string;
   sentToAdmin?: boolean;
+  // Original API data needed for send to admin
+  hazardType?: string;
+  title?: string;
+  area?: string;
   aiReport?: {
     reportId?: string;
     title: string;
@@ -246,6 +250,10 @@ function mapAPITweetToTweet(
       apiTweet.upvote
     ),
     verificationStatus: apiTweet.is_verified ? 'verified_true' : 'unverified',
+    // Store original API data for send to admin
+    hazardType: apiTweet.hazard_type,
+    title: apiTweet.Title,
+    area: apiTweet.area,
     // aiReport is undefined initially - will be populated after verification API call
   };
 }
@@ -481,6 +489,101 @@ export async function getUserInfo(tweetId: string): Promise<UserInfo> {
     return result.user;
   } catch (error) {
     console.error('Error fetching user info:', error);
+    throw error;
+  }
+}
+
+/**
+ * Send to Admin Response Interface
+ */
+interface SendToAdminResponse {
+  success: boolean;
+  message: string;
+  tweet_id: string;
+  send_admin: boolean;
+}
+
+/**
+ * Send tweet to administrator
+ *
+ * @param tweet - The tweet to send to admin
+ * @param userId - The analyst's user ID
+ * @returns Promise with send to admin response
+ */
+export async function sendTweetToAdmin(
+  tweet: Tweet,
+  userId: number
+): Promise<SendToAdminResponse> {
+  const token = getAccessToken();
+
+  if (!token) {
+    throw new Error('Not authenticated. Please login again.');
+  }
+
+  console.log('📤 Sending tweet to admin:', {
+    tweetId: tweet.id,
+    userId,
+    hazardType: tweet.hazardType,
+    title: tweet.title,
+  });
+
+  try {
+    const formData = new FormData();
+
+    // Add required fields
+    formData.append('hazard_type', tweet.hazardType || 'Unknown');
+    formData.append('Title', tweet.title || 'Alert');
+    formData.append('hazard_description', tweet.content);
+    formData.append('lat', tweet.latitude.toString());
+    formData.append('lon', tweet.longitude.toString());
+    formData.append('area', tweet.area || 'Unknown');
+
+    // Handle image - fetch from URL and convert to blob
+    if (tweet.image) {
+      try {
+        console.log('📷 Fetching image from:', tweet.image);
+        const imageResponse = await fetch(tweet.image);
+        const imageBlob = await imageResponse.blob();
+        formData.append('images', imageBlob, 'tweet-image.jpg');
+        console.log('✅ Image added to FormData');
+      } catch (imageError) {
+        console.warn(
+          '⚠️ Failed to fetch image, continuing without it:',
+          imageError
+        );
+      }
+    }
+
+    const url = `${ANALYST_ENDPOINTS.SEND_TO_ADMIN}?id=${userId}`;
+    console.log('📡 Sending request to:', url);
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        // Don't set Content-Type header - browser will set it with boundary for FormData
+      },
+      body: formData,
+    });
+
+    console.log('📥 Send to Admin Response Status:', response.status);
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error('Session expired. Please login again.');
+      }
+      const errorData = await response.json().catch(() => ({}));
+      console.error('❌ Send to Admin Error:', errorData);
+      throw new Error(
+        errorData.error || errorData.detail || 'Failed to send tweet to admin'
+      );
+    }
+
+    const result: SendToAdminResponse = await response.json();
+    console.log('✅ Send to Admin Success:', result);
+    return result;
+  } catch (error) {
+    console.error('❌ Error sending tweet to admin:', error);
     throw error;
   }
 }

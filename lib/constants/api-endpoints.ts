@@ -47,6 +47,9 @@ export const ANALYST_ENDPOINTS = {
 
   // Get Reddit sources for social media monitoring
   GET_REDDIT_SOURCES: `${BASE_URL}/api/reddit/sources`,
+
+  // Send tweet to administrator
+  SEND_TO_ADMIN: `${BASE_URL}/api/send/admin`,
 } as const;
 
 /**
