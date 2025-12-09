@@ -8,6 +8,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import {
   MapPin,
   Calendar,
   ThumbsUp,
@@ -41,6 +47,7 @@ export default function TweetDetailsPanel({
   onClose,
 }: TweetDetailsPanelProps) {
   const [showManualVerification, setShowManualVerification] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
 
   // Check if tweet is already verified from API
   const isVerifiedFromAPI = tweet.verificationStatus === 'verified_true';
@@ -105,7 +112,8 @@ export default function TweetDetailsPanel({
             <img
               src={tweet.image || '/placeholder.svg'}
               alt="Tweet content"
-              className="w-full rounded-lg border border-border object-cover max-h-48"
+              className="w-full rounded-lg border border-border object-cover max-h-48 cursor-pointer hover:opacity-90 transition-opacity"
+              onClick={() => setShowImageModal(true)}
             />
           )}
         </div>
@@ -305,6 +313,22 @@ export default function TweetDetailsPanel({
           </div>
         )}
       </CardContent>
+
+      {/* Image Modal */}
+      <Dialog open={showImageModal} onOpenChange={setShowImageModal}>
+        <DialogContent className="max-w-5xl max-h-[90vh] overflow-hidden p-0">
+          <DialogHeader className="px-6 pt-6 pb-4">
+            <DialogTitle>Image Preview</DialogTitle>
+          </DialogHeader>
+          <div className="w-full flex items-center justify-center px-6 pb-6 overflow-auto max-h-[calc(90vh-80px)]">
+            <img
+              src={tweet.image || '/placeholder.svg'}
+              alt="Tweet content full size"
+              className="w-auto h-auto max-w-full max-h-full rounded-lg object-contain"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </Card>
   );
 }
