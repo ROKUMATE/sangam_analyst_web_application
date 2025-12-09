@@ -24,6 +24,7 @@ import { clearAuthData } from '@/lib/utils/cookies';
 
 export interface Tweet {
   id: string;
+  userId: number; // User ID to fetch user info
   author: string;
   phone: string;
   avatar: string;

@@ -41,6 +41,9 @@ export const ANALYST_ENDPOINTS = {
 
   // Verify tweet (mark as verified or unverified)
   VERIFY_TWEET: `${BASE_URL}/api/tweet/verify`,
+
+  // Get user information by user ID
+  GET_USER: `${BASE_URL}/api/user`,
 } as const;
 
 /**

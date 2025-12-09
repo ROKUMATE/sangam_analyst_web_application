@@ -41,6 +41,7 @@ interface APITweet {
  */
 export interface Tweet {
   id: string;
+  userId: number; // User ID to fetch user info
   author: string;
   phone: string;
   avatar: string;
@@ -221,6 +222,7 @@ function mapAPITweetToTweet(
 
   return {
     id: apiTweet.tweet_id,
+    userId: apiTweet.user,
     author: `User ${apiTweet.user}`, // Default name, can be enhanced later
     phone: '+1-555-0000', // Placeholder, not provided by API
     avatar: generateAvatarUrl(apiTweet.user),
@@ -450,6 +452,58 @@ export async function verifyTweet(
     return result;
   } catch (error) {
     console.error('Error verifying tweet:', error);
+    throw error;
+  }
+}
+
+/**
+ * User Information Interface
+ */
+export interface UserInfo {
+  id: number;
+  username: string | null;
+  email: string | null;
+  phone: string;
+  is_analyst: boolean;
+}
+
+/**
+ * Get user information by tweet ID
+ *
+ * @param tweetId - The tweet ID
+ * @returns Promise with user information
+ */
+export async function getUserInfo(tweetId: string): Promise<UserInfo> {
+  const token = getAccessToken();
+
+  if (!token) {
+    throw new Error('Not authenticated. Please login again.');
+  }
+
+  try {
+    const response = await fetch(
+      `${ANALYST_ENDPOINTS.GET_USER}?id=${tweetId}`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error('Session expired. Please login again.');
+      }
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to fetch user information');
+    }
+
+    const result: { user: UserInfo } = await response.json();
+    return result.user;
+  } catch (error) {
+    console.error('Error fetching user info:', error);
     throw error;
   }
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -28,6 +28,7 @@ import {
   Map,
 } from 'lucide-react';
 import type { Tweet } from './dashboard-page';
+import { getUserInfo, type UserInfo } from '@/lib/api-integration';
 
 interface TweetDetailsPanelProps {
   tweet: Tweet;
@@ -51,6 +52,30 @@ export default function TweetDetailsPanel({
   const [showAiReport, setShowAiReport] = useState(false);
   const [isLoadingAiReport, setIsLoadingAiReport] = useState(false);
   const [previewPost, setPreviewPost] = useState<Tweet | null>(null);
+  const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
+  const [isLoadingUserInfo, setIsLoadingUserInfo] = useState(false);
+
+  // Fetch user information when tweet changes
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      setIsLoadingUserInfo(true);
+      try {
+        const info = await getUserInfo(tweet.id);
+        setUserInfo(info);
+      } catch (error) {
+        console.error('Failed to fetch user info:', error);
+        // Keep using default tweet.author and tweet.phone if API fails
+      } finally {
+        setIsLoadingUserInfo(false);
+      }
+    };
+
+    fetchUserInfo();
+  }, [tweet.id]);
+
+  // Use fetched user info or fallback to tweet defaults
+  const displayName = userInfo?.username || tweet.author;
+  const displayPhone = userInfo?.phone || tweet.phone;
 
   // Check if tweet is already verified from API
   const isVerifiedFromAPI = tweet.verificationStatus === 'verified_true';
@@ -94,13 +119,15 @@ export default function TweetDetailsPanel({
           <div className="flex items-center gap-3 mb-3">
             <Avatar className="h-10 w-10">
               <AvatarImage src={tweet.avatar || '/placeholder.svg'} />
-              <AvatarFallback>{tweet.author[0]}</AvatarFallback>
+              <AvatarFallback>{displayName[0]}</AvatarFallback>
             </Avatar>
             <div className="flex-1">
-              <p className="font-semibold text-sm">{tweet.author}</p>
+              <p className="font-semibold text-sm">
+                {isLoadingUserInfo ? 'Loading...' : displayName}
+              </p>
               <div className="flex items-center gap-2 text-xs text-muted-foreground mt-1">
                 <Phone className="w-3 h-3" />
-                <span>{tweet.phone}</span>
+                <span>{displayPhone}</span>
               </div>
             </div>
           </div>
@@ -245,8 +272,10 @@ export default function TweetDetailsPanel({
               </p>
               <div className="flex items-center justify-between bg-muted/50 rounded-lg p-3">
                 <div className="flex-1">
-                  <p className="text-sm font-medium">{tweet.author}</p>
-                  <p className="text-xs text-muted-foreground">{tweet.phone}</p>
+                  <p className="text-sm font-medium">{displayName}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {displayPhone}
+                  </p>
                 </div>
                 <Button
                   size="sm"
@@ -407,11 +436,11 @@ export default function TweetDetailsPanel({
                       <div className="space-y-2 text-xs">
                         <div>
                           <p className="text-muted-foreground">Name</p>
-                          <p className="font-medium">{tweet.author}</p>
+                          <p className="font-medium">{displayName}</p>
                         </div>
                         <div>
                           <p className="text-muted-foreground">Phone Number</p>
-                          <p className="font-medium">{tweet.phone}</p>
+                          <p className="font-medium">{displayPhone}</p>
                         </div>
                         <div>
                           <p className="text-muted-foreground">Posted</p>
