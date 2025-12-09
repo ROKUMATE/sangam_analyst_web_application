@@ -39,9 +39,20 @@ export interface Tweet {
   verifiedBy?: string;
   sentToAdmin?: boolean;
   aiReport?: {
+    title: string;
+    description: string;
     credibilityScore: number;
+    severityScore: number;
+    areaOfImpact: string;
     sources: Array<{ title: string; url: string; domain: string }>;
     analysis: string;
+    nearbySimilarPosts?: Array<{
+      id: string;
+      username: string;
+      phoneNumber: string;
+      timestamp: string;
+      distance: number;
+    }>;
   };
 }
 

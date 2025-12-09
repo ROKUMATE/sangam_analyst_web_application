@@ -56,9 +56,20 @@ export interface Tweet {
   verifiedBy?: string;
   sentToAdmin?: boolean;
   aiReport?: {
+    title: string;
+    description: string;
     credibilityScore: number;
+    severityScore: number;
+    areaOfImpact: string;
     sources: Array<{ title: string; url: string; domain: string }>;
     analysis: string;
+    nearbySimilarPosts?: Array<{
+      id: string;
+      username: string;
+      phoneNumber: string;
+      timestamp: string;
+      distance: number;
+    }>;
   };
 }
 
@@ -228,9 +239,21 @@ function mapAPITweetToTweet(
     ),
     verificationStatus: apiTweet.is_verified ? 'verified_true' : 'unverified',
     aiReport: {
+      title: apiTweet.Title || 'Ocean Disaster Alert',
+      description: apiTweet.hazard_description,
       credibilityScore: apiTweet.credibility
         ? Math.round(apiTweet.credibility * 10)
-        : 75, // Hardcoded fallback score
+        : 75,
+      severityScore: apiTweet.severity
+        ? apiTweet.severity === 'critical'
+          ? 95
+          : apiTweet.severity === 'high'
+          ? 75
+          : apiTweet.severity === 'medium'
+          ? 50
+          : 25
+        : 65,
+      areaOfImpact: apiTweet.area_of_impact || '5-10 km radius',
       sources: [
         {
           title: 'National Oceanic and Atmospheric Administration',
@@ -266,6 +289,23 @@ function mapAPITweetToTweet(
           }" and location coordinates, the system has assigned a preliminary credibility score of 75%. Further verification recommended through satellite imagery and local authority reports. Area of impact: ${
             apiTweet.area_of_impact || 'Estimated 5-10 km radius'
           }. Keywords identified: ${apiTweet.keywords.join(', ')}.`,
+      nearbySimilarPosts: [
+        // Hardcoded sample data - will be replaced with API call
+        {
+          id: 'sample-1',
+          username: 'User ' + ((apiTweet.user + 1) % 100),
+          phoneNumber: '+1-555-1234',
+          timestamp: '15 min ago',
+          distance: 0.5,
+        },
+        {
+          id: 'sample-2',
+          username: 'User ' + ((apiTweet.user + 2) % 100),
+          phoneNumber: '+1-555-5678',
+          timestamp: '45 min ago',
+          distance: 0.8,
+        },
+      ],
     },
   };
 }
