@@ -7,6 +7,7 @@ import DashboardHeader from './dashboard-header';
 import MapSection from './map-section';
 import StatsOverview from './stats-overview';
 import NotificationStack from './notification-stack';
+import { RefreshCw } from 'lucide-react';
 import {
   Card,
   CardContent,
@@ -59,7 +60,7 @@ export default function DashboardPage({
   };
 
   const [selectedTweet, setSelectedTweet] = useState<Tweet | null>(null);
-  const [sortBy, setSortBy] = useState<'votes' | 'distance'>('votes');
+  const [sortBy, setSortBy] = useState<'votes' | 'distance' | 'time'>('time');
   const [verificationStatuses, setVerificationStatuses] = useState<
     Map<string, 'unverified' | 'verified_true' | 'verified_false'>
   >(new Map());
@@ -72,6 +73,7 @@ export default function DashboardPage({
   const [tweets, setTweets] = useState<Tweet[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
   const tweetListRef = useRef<HTMLDivElement>(null);
 
   // Fetch tweets on component mount
@@ -99,11 +101,60 @@ export default function DashboardPage({
     fetchTweets();
   }, []);
 
+  const handleRefreshTweets = async () => {
+    try {
+      setRefreshing(true);
+      setError(null);
+
+      const userLat = 17.4059406;
+      const userLon = 78.6210593;
+
+      const fetchedTweets = await getNearbyTweets(userLat, userLon);
+      setTweets(fetchedTweets);
+
+      const notification: {
+        id: string;
+        message: string;
+        type: 'critical' | 'verified';
+      } = {
+        id: Date.now().toString(),
+        message: 'Tweets refreshed successfully',
+        type: 'verified',
+      };
+      setNotifications((prev) => [...prev, notification]);
+      setTimeout(() => {
+        setNotifications((prev) =>
+          prev.filter((n) => n.id !== notification.id)
+        );
+      }, 3000);
+    } catch (err) {
+      console.error('Failed to refresh tweets:', err);
+      setError(err instanceof Error ? err.message : 'Failed to refresh tweets');
+    } finally {
+      setRefreshing(false);
+    }
+  };
+
   const sortedTweets = useMemo(() => {
     return [...tweets].sort((a, b) => {
-      if (sortBy === 'votes') {
+      // Parse timestamps
+      const dateA = new Date(a.timestamp).getTime();
+      const dateB = new Date(b.timestamp).getTime();
+
+      if (sortBy === 'time') {
+        // Sort by time (newest first)
+        return dateB - dateA;
+      } else if (sortBy === 'votes') {
+        // If votes are equal, use timestamp
+        if (b.votes === a.votes) {
+          return dateB - dateA;
+        }
         return b.votes - a.votes;
       } else {
+        // If distance is equal, use timestamp
+        if (a.distance === b.distance) {
+          return dateB - dateA;
+        }
         return a.distance - b.distance;
       }
     });
@@ -251,25 +302,47 @@ export default function DashboardPage({
                       40 km radius
                     </CardDescription>
                   </div>
-                  <div className="flex gap-1">
+                  <div className="flex gap-2">
                     <button
-                      onClick={() => setSortBy('votes')}
-                      className={`px-2 py-1 text-xs rounded border transition-colors ${
-                        sortBy === 'votes'
-                          ? 'bg-primary text-primary-foreground border-primary'
-                          : 'border-border hover:border-primary/50'
-                      }`}>
-                      Votes
+                      onClick={handleRefreshTweets}
+                      disabled={refreshing}
+                      className="p-1.5 rounded border border-border hover:border-primary/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      title="Refresh tweets">
+                      <RefreshCw
+                        className={`w-4 h-4 ${
+                          refreshing ? 'animate-spin' : ''
+                        }`}
+                      />
                     </button>
-                    <button
-                      onClick={() => setSortBy('distance')}
-                      className={`px-2 py-1 text-xs rounded border transition-colors ${
-                        sortBy === 'distance'
-                          ? 'bg-primary text-primary-foreground border-primary'
-                          : 'border-border hover:border-primary/50'
-                      }`}>
-                      Distance
-                    </button>
+                    <div className="flex gap-1">
+                      <button
+                        onClick={() => setSortBy('time')}
+                        className={`px-2 py-1 text-xs rounded border transition-colors ${
+                          sortBy === 'time'
+                            ? 'bg-primary text-primary-foreground border-primary'
+                            : 'border-border hover:border-primary/50'
+                        }`}>
+                        Time
+                      </button>
+                      <button
+                        onClick={() => setSortBy('votes')}
+                        className={`px-2 py-1 text-xs rounded border transition-colors ${
+                          sortBy === 'votes'
+                            ? 'bg-primary text-primary-foreground border-primary'
+                            : 'border-border hover:border-primary/50'
+                        }`}>
+                        Votes
+                      </button>
+                      <button
+                        onClick={() => setSortBy('distance')}
+                        className={`px-2 py-1 text-xs rounded border transition-colors ${
+                          sortBy === 'distance'
+                            ? 'bg-primary text-primary-foreground border-primary'
+                            : 'border-border hover:border-primary/50'
+                        }`}>
+                        Distance
+                      </button>
+                    </div>
                   </div>
                 </div>
               </CardHeader>
