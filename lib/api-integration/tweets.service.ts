@@ -90,10 +90,15 @@ function getTimeAgo(isoTimestamp: string): string {
  * Low: Minor issues or low credibility reports
  */
 function determineSeverity(
-  hazardType: string,
+  hazardType: string | null,
   credibility: number | null,
   upvotes: number
 ): 'critical' | 'high' | 'medium' | 'low' {
+  // Handle null hazardType
+  if (!hazardType) {
+    return 'low';
+  }
+
   const criticalHazards = [
     'tsunami',
     'severe flooding',
@@ -224,7 +229,7 @@ function mapAPITweetToTweet(
     verificationStatus: apiTweet.is_verified ? 'verified_true' : 'unverified',
     aiReport: {
       credibilityScore: apiTweet.credibility
-        ? Math.round(apiTweet.credibility * 100)
+        ? Math.round(apiTweet.credibility * 10)
         : 75, // Hardcoded fallback score
       sources: [
         {
@@ -245,7 +250,7 @@ function mapAPITweetToTweet(
       ],
       analysis: apiTweet.credibility
         ? `AI Analysis: Credibility score is ${Math.round(
-            apiTweet.credibility * 100
+            apiTweet.credibility * 10
           )}% based on cross-referencing multiple verified sources. The report has been validated against satellite imagery and historical weather patterns. Area of impact: ${
             apiTweet.area_of_impact || 'Unknown'
           }. Severity classification: ${

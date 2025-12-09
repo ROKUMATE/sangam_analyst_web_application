@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Waves, LogOut, Clock, Bell, BarChart3 } from 'lucide-react';
+import { LogOut, Clock, Bell, BarChart3 } from 'lucide-react';
 import { useState } from 'react';
 
 interface DashboardHeaderProps {
@@ -26,7 +26,11 @@ export default function DashboardHeader({
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="bg-gradient-to-br from-primary to-secondary p-2 rounded-lg">
-            <Waves className="w-6 h-6 text-primary-foreground" />
+            <img
+              src="/sangam_logo.png"
+              alt="Sangam Logo"
+              className="w-8 h-8 object-contain"
+            />
           </div>
           <div>
             <h1 className="text-2xl font-bold text-foreground">Sangam</h1>

@@ -11,14 +11,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import {
-  Waves,
-  CheckCircle,
-  Loader2,
-  Lock,
-  ShieldCheck,
-  Clock,
-} from 'lucide-react';
+import { CheckCircle, Loader2, Lock, ShieldCheck, Clock } from 'lucide-react';
 import { requestAnalystOTP, verifyOTP } from '@/lib/api-integration';
 import { storeUserData } from '@/lib/utils/cookies';
 
@@ -148,7 +141,11 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
             <div className="bg-gradient-to-br from-primary to-secondary p-3 rounded-2xl shadow-lg">
-              <Waves className="w-8 h-8 text-primary-foreground" />
+              <img
+                src="/sangam_logo.png"
+                alt="Sangam Logo"
+                className="w-16 h-16 object-contain"
+              />
             </div>
           </div>
           <h1 className="text-3xl font-bold text-foreground mb-2">Sangam</h1>

@@ -42,6 +42,11 @@ export default function TweetDetailsPanel({
 }: TweetDetailsPanelProps) {
   const [showManualVerification, setShowManualVerification] = useState(false);
 
+  // Check if tweet is already verified from API
+  const isVerifiedFromAPI = tweet.verificationStatus === 'verified_true';
+  const isCurrentlyVerified =
+    verificationStatus === 'verified_true' || isVerifiedFromAPI;
+
   const severityColors = {
     critical: 'bg-destructive text-destructive-foreground',
     high: 'bg-secondary text-secondary-foreground',
@@ -58,7 +63,7 @@ export default function TweetDetailsPanel({
             <Badge className={severityColors[tweet.severity]}>
               {tweet.severity.charAt(0).toUpperCase() + tweet.severity.slice(1)}
             </Badge>
-            {verificationStatus === 'verified_true' ? (
+            {isCurrentlyVerified ? (
               <Badge className="bg-green-600 text-white">Verified</Badge>
             ) : (
               <Badge variant="outline">Unverified</Badge>
@@ -174,7 +179,7 @@ export default function TweetDetailsPanel({
         )}
 
         {/* Verification Section */}
-        {verificationStatus === 'unverified' ? (
+        {!isCurrentlyVerified ? (
           <div className="space-y-3 border-t pt-3">
             <h4 className="text-sm font-semibold">Verify This Tweet</h4>
             <Tabs defaultValue="ai" className="w-full">
