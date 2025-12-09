@@ -58,6 +58,23 @@ export default function TweetDetailsPanel({
     'ai' | 'manual' | null
   >(null);
 
+  // Show AI report when tweet has aiReport data (after verification)
+  useEffect(() => {
+    console.log('🔍 AI Report State Check:', {
+      tweetId: tweet.id,
+      hasAiReport: !!tweet.aiReport,
+      showAiReport,
+      aiReportTitle: tweet.aiReport?.title,
+    });
+    if (tweet.aiReport) {
+      console.log('✨ Setting showAiReport to true');
+      setShowAiReport(true);
+    } else {
+      console.log('❌ No AI report available');
+      setShowAiReport(false);
+    }
+  }, [tweet.aiReport, tweet.id]);
+
   // Fetch user information when tweet changes
   useEffect(() => {
     const fetchUserInfo = async () => {
@@ -87,6 +104,14 @@ export default function TweetDetailsPanel({
   const isCurrentlyVerified =
     verificationStatus === 'verified_true' || isVerifiedFromAPI;
 
+  console.log('🎯 Verification Status:', {
+    tweetId: tweet.id,
+    verificationStatus,
+    isVerifiedFromAPI,
+    isCurrentlyVerified,
+    tweetVerificationStatus: tweet.verificationStatus,
+  });
+
   const severityColors = {
     critical: 'bg-destructive text-destructive-foreground',
     high: 'bg-secondary text-secondary-foreground',
@@ -95,7 +120,12 @@ export default function TweetDetailsPanel({
   };
 
   return (
-    <Card className="border-2 rounded-lg flex flex-col overflow-hidden shadow-sm max-h-[700px]">
+    <Card
+      className={`border-2 rounded-lg flex flex-col overflow-hidden shadow-sm max-h-[700px] transition-colors ${
+        isCurrentlyVerified
+          ? 'border-green-500 bg-green-50/30 dark:bg-green-950/30'
+          : ''
+      }`}>
       <CardHeader className="pb-3 border-b flex-shrink-0 flex flex-row items-start justify-between px-4 py-4">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
@@ -175,7 +205,7 @@ export default function TweetDetailsPanel({
           <p>Lon: {tweet.longitude.toFixed(4)}</p>
         </div>
 
-        {/* Credibility Score - Always visible */}
+        {/* Credibility Score - Only visible when AI report exists */}
         {tweet.aiReport && (
           <div className="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg p-3">
             <h4 className="font-semibold text-sm mb-2 flex items-center gap-2">
@@ -186,11 +216,13 @@ export default function TweetDetailsPanel({
               <div className="flex-1 bg-muted rounded-full h-2 overflow-hidden">
                 <div
                   className="bg-gradient-to-r from-primary to-secondary h-full"
-                  style={{ width: `${tweet.aiReport.credibilityScore}%` }}
+                  style={{
+                    width: `${(tweet.aiReport.credibilityScore / 10) * 100}%`,
+                  }}
                 />
               </div>
               <span className="font-semibold text-sm">
-                {tweet.aiReport.credibilityScore}%
+                {tweet.aiReport.credibilityScore}/10
               </span>
             </div>
           </div>
@@ -225,13 +257,47 @@ export default function TweetDetailsPanel({
             </div>
 
             {/* Description */}
-            <div className="bg-white/50 dark:bg-black/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
-              <p className="text-xs text-blue-700 dark:text-blue-300 font-semibold mb-2 uppercase tracking-wide">
-                Description
+            <div className="bg-white/50 dark:bg-black/20 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+              <p className="text-xs text-blue-700 dark:text-blue-300 font-semibold mb-3 uppercase tracking-wide">
+                AI Analysis Report
               </p>
-              <p className="text-sm leading-relaxed text-gray-800 dark:text-gray-200">
-                {tweet.aiReport.description || tweet.aiReport.analysis}
-              </p>
+              <div className="space-y-4 text-sm leading-relaxed text-gray-800 dark:text-gray-200">
+                {/* Description */}
+                {tweet.aiReport.description && (
+                  <div>
+                    <p className="font-semibold text-blue-900 dark:text-blue-100 mb-1">
+                      Description:
+                    </p>
+                    <p className="whitespace-pre-wrap">
+                      {tweet.aiReport.description}
+                    </p>
+                  </div>
+                )}
+
+                {/* Reasoning */}
+                {tweet.aiReport.reasoning && (
+                  <div>
+                    <p className="font-semibold text-blue-900 dark:text-blue-100 mb-1">
+                      Reasoning:
+                    </p>
+                    <p className="whitespace-pre-wrap">
+                      {tweet.aiReport.reasoning}
+                    </p>
+                  </div>
+                )}
+
+                {/* Credibility Analysis */}
+                {tweet.aiReport.credibilityAnalysis && (
+                  <div>
+                    <p className="font-semibold text-blue-900 dark:text-blue-100 mb-1">
+                      Credibility Analysis:
+                    </p>
+                    <p className="whitespace-pre-wrap">
+                      {tweet.aiReport.credibilityAnalysis}
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Scores Grid */}
@@ -239,18 +305,22 @@ export default function TweetDetailsPanel({
               {/* Credibility Score */}
               <div className="bg-white/60 dark:bg-black/30 rounded-lg p-3 border border-green-200 dark:border-green-800">
                 <p className="text-xs text-green-700 dark:text-green-300 font-semibold mb-2 uppercase tracking-wide">
-                  Credibility
+                  Credibility Score
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <div className="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden shadow-inner">
                       <div
                         className="bg-gradient-to-r from-green-500 via-emerald-500 to-blue-500 h-full rounded-full transition-all duration-500"
-                        style={{ width: `${tweet.aiReport.credibilityScore}%` }}
+                        style={{
+                          width: `${
+                            (tweet.aiReport.credibilityScore / 10) * 100
+                          }%`,
+                        }}
                       />
                     </div>
                     <span className="font-bold text-lg text-green-700 dark:text-green-300 min-w-[3rem] text-right">
-                      {tweet.aiReport.credibilityScore}%
+                      {tweet.aiReport.credibilityScore}/10
                     </span>
                   </div>
                 </div>
@@ -259,7 +329,7 @@ export default function TweetDetailsPanel({
               {/* Severity Score */}
               <div className="bg-white/60 dark:bg-black/30 rounded-lg p-3 border border-orange-200 dark:border-orange-800">
                 <p className="text-xs text-orange-700 dark:text-orange-300 font-semibold mb-2 uppercase tracking-wide">
-                  Severity
+                  Severity Score
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
@@ -267,53 +337,120 @@ export default function TweetDetailsPanel({
                       <div
                         className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 h-full rounded-full transition-all duration-500"
                         style={{
-                          width: `${tweet.aiReport.severityScore || 75}%`,
+                          width: `${
+                            (tweet.aiReport.severityScore / 10) * 100
+                          }%`,
                         }}
                       />
                     </div>
                     <span className="font-bold text-lg text-orange-700 dark:text-orange-300 min-w-[3rem] text-right">
-                      {tweet.aiReport.severityScore || 75}%
+                      {tweet.aiReport.severityScore}/10
                     </span>
                   </div>
                 </div>
               </div>
+
+              {/* Area of Impact Score */}
+              {tweet.aiReport.areaOfImpactScore !== undefined && (
+                <div className="bg-white/60 dark:bg-black/30 rounded-lg p-3 border border-indigo-200 dark:border-indigo-800">
+                  <p className="text-xs text-indigo-700 dark:text-indigo-300 font-semibold mb-2 uppercase tracking-wide">
+                    Area Impact Score
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="flex-1 bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden shadow-inner">
+                        <div
+                          className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-full rounded-full transition-all duration-500"
+                          style={{
+                            width: `${
+                              (tweet.aiReport.areaOfImpactScore / 10) * 100
+                            }%`,
+                          }}
+                        />
+                      </div>
+                      <span className="font-bold text-lg text-indigo-700 dark:text-indigo-300 min-w-[3rem] text-right">
+                        {tweet.aiReport.areaOfImpactScore}/10
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Social Post Count */}
+              {tweet.aiReport.socialPostCount !== undefined &&
+                tweet.aiReport.socialPostCount !== null && (
+                  <div className="bg-white/60 dark:bg-black/30 rounded-lg p-3 border border-cyan-200 dark:border-cyan-800">
+                    <p className="text-xs text-cyan-700 dark:text-cyan-300 font-semibold mb-2 uppercase tracking-wide">
+                      Social Posts Found
+                    </p>
+                    <div className="flex items-center justify-center h-full">
+                      <span className="font-bold text-3xl text-cyan-700 dark:text-cyan-300">
+                        {tweet.aiReport.socialPostCount}
+                      </span>
+                    </div>
+                  </div>
+                )}
             </div>
+
+            {/* Key Indicators */}
+            {tweet.aiReport.keyIndicators &&
+              tweet.aiReport.keyIndicators.length > 0 && (
+                <div className="bg-white/50 dark:bg-black/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+                  <p className="text-xs text-blue-700 dark:text-blue-300 font-semibold mb-2 uppercase tracking-wide">
+                    Key Indicators
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {tweet.aiReport.keyIndicators.map((indicator, idx) => (
+                      <Badge
+                        key={idx}
+                        variant="secondary"
+                        className="bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 text-xs">
+                        {indicator}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
 
             {/* Area of Impact */}
-            <div className="bg-white/50 dark:bg-black/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
-              <p className="text-xs text-blue-700 dark:text-blue-300 font-semibold mb-1 uppercase tracking-wide">
-                Area of Impact
-              </p>
-              <p className="text-sm font-medium text-blue-950 dark:text-blue-50">
-                {tweet.aiReport.areaOfImpact || '5-10 km radius'}
-              </p>
-            </div>
-
-            {/* Sources Researched */}
-            <div className="bg-white/50 dark:bg-black/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
-              <p className="text-xs text-blue-700 dark:text-blue-300 font-semibold mb-3 uppercase tracking-wide flex items-center gap-2">
-                <ExternalLink className="w-3 h-3" />
-                Sources Researched
-              </p>
-              <div className="space-y-2">
-                {tweet.aiReport.sources.map((source, idx) => (
-                  <a
-                    key={idx}
-                    href={source.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline text-xs group bg-blue-100/50 dark:bg-blue-900/30 p-2 rounded transition-colors">
-                    <ExternalLink className="w-3 h-3 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                    <div>
-                      <p className="font-medium">{source.title}</p>
-                      <p className="text-[10px] text-blue-500 dark:text-blue-400">
-                        {source.domain}
-                      </p>
-                    </div>
-                  </a>
-                ))}
+            {tweet.aiReport.areaOfImpact && (
+              <div className="bg-white/50 dark:bg-black/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+                <p className="text-xs text-blue-700 dark:text-blue-300 font-semibold mb-1 uppercase tracking-wide">
+                  Area of Impact
+                </p>
+                <p className="text-sm font-medium text-blue-950 dark:text-blue-50">
+                  {tweet.aiReport.areaOfImpact}
+                </p>
               </div>
-            </div>
+            )}
+
+            {/* Sources Researched - Only show if sources exist */}
+            {tweet.aiReport.sources && tweet.aiReport.sources.length > 0 && (
+              <div className="bg-white/50 dark:bg-black/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+                <p className="text-xs text-blue-700 dark:text-blue-300 font-semibold mb-3 uppercase tracking-wide flex items-center gap-2">
+                  <ExternalLink className="w-3 h-3" />
+                  Sources Researched
+                </p>
+                <div className="space-y-2">
+                  {tweet.aiReport.sources.map((source, idx) => (
+                    <a
+                      key={idx}
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline text-xs group bg-blue-100/50 dark:bg-blue-900/30 p-2 rounded transition-colors">
+                      <ExternalLink className="w-3 h-3 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                      <div>
+                        <p className="font-medium">{source.title}</p>
+                        <p className="text-[10px] text-blue-500 dark:text-blue-400">
+                          {source.domain}
+                        </p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Creator of Post */}
             <div className="bg-white/60 dark:bg-black/30 rounded-lg p-3 border border-purple-200 dark:border-purple-800">
@@ -340,48 +477,44 @@ export default function TweetDetailsPanel({
               </div>
             </div>
 
-            {/* Nearby Similar Posts */}
-            <div className="bg-white/50 dark:bg-black/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
-              <p className="text-xs text-blue-700 dark:text-blue-300 font-semibold mb-3 uppercase tracking-wide">
-                Nearby Similar Posts
-                <span className="ml-2 text-[10px] normal-case font-normal bg-blue-200 dark:bg-blue-800 px-2 py-0.5 rounded">
-                  within 1km, ±1hr
-                </span>
-              </p>
-              <div className="space-y-2 max-h-48 overflow-y-auto">
-                {tweet.aiReport.nearbySimilarPosts &&
-                tweet.aiReport.nearbySimilarPosts.length > 0 ? (
-                  tweet.aiReport.nearbySimilarPosts.map((post) => (
-                    <div
-                      key={post.id}
-                      className="flex items-center justify-between bg-blue-50/50 dark:bg-blue-900/20 rounded-lg p-2 border border-blue-200 dark:border-blue-700 hover:border-blue-400 dark:hover:border-blue-500 transition-colors">
-                      <div className="flex-1">
-                        <p className="text-xs font-semibold text-blue-900 dark:text-blue-100">
-                          {post.username}
-                        </p>
-                        <p className="text-[10px] text-blue-600 dark:text-blue-400">
-                          {post.phoneNumber}
-                        </p>
-                      </div>
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        onClick={() => {
-                          alert(`View post ${post.id} from ${post.username}`);
-                        }}
-                        className="text-xs h-7 px-2 hover:bg-blue-200 dark:hover:bg-blue-800">
-                        <ExternalLink className="w-3 h-3 mr-1" />
-                        View
-                      </Button>
-                    </div>
-                  ))
-                ) : (
-                  <p className="text-xs text-blue-600 dark:text-blue-400 italic py-3 text-center bg-blue-100/50 dark:bg-blue-900/20 rounded">
-                    No similar posts found in the area
+            {/* Nearby Similar Posts / Related Posts */}
+            {tweet.aiReport.relatedPosts &&
+              tweet.aiReport.relatedPosts.length > 0 && (
+                <div className="bg-white/50 dark:bg-black/20 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+                  <p className="text-xs text-blue-700 dark:text-blue-300 font-semibold mb-3 uppercase tracking-wide">
+                    Related Posts
+                    <span className="ml-2 text-[10px] normal-case font-normal bg-blue-200 dark:bg-blue-800 px-2 py-0.5 rounded">
+                      {tweet.aiReport.relatedPosts.length} found
+                    </span>
                   </p>
-                )}
-              </div>
-            </div>
+                  <div className="space-y-2 max-h-48 overflow-y-auto">
+                    {tweet.aiReport.relatedPosts.map((post) => (
+                      <div
+                        key={post.id}
+                        className="flex items-center justify-between bg-blue-50/50 dark:bg-blue-900/20 rounded-lg p-2 border border-blue-200 dark:border-blue-700 hover:border-blue-400 dark:hover:border-blue-500 transition-colors">
+                        <div className="flex-1">
+                          <p className="text-xs font-semibold text-blue-900 dark:text-blue-100">
+                            {post.username}
+                          </p>
+                          <p className="text-[10px] text-blue-600 dark:text-blue-400">
+                            {post.phoneNumber}
+                          </p>
+                        </div>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={() => {
+                            alert(`View post ${post.id} from ${post.username}`);
+                          }}
+                          className="text-xs h-7 px-2 hover:bg-blue-200 dark:hover:bg-blue-800">
+                          <ExternalLink className="w-3 h-3 mr-1" />
+                          View
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
           </div>
         )}
 
@@ -407,23 +540,35 @@ export default function TweetDetailsPanel({
                   will be displayed after verification.
                 </p>
                 <Button
-                  onClick={() => {
+                  onClick={async () => {
+                    console.log(
+                      '🔘 Verify button clicked for tweet:',
+                      tweet.id
+                    );
                     setIsLoadingAiReport(true);
                     setVerificationMethod('ai');
-                    // Simulate API call - replace with actual verification API call
-                    // This will call verification API and fetch AI report
-                    setTimeout(() => {
-                      setShowAiReport(true);
+                    try {
+                      console.log('📞 Calling onVerify handler...');
+                      await onVerify(); // Call parent's verify handler which updates tweet with AI report
+                      console.log('✅ onVerify completed successfully');
+                    } catch (error) {
+                      console.error('❌ Verification failed:', error);
+                    } finally {
                       setIsLoadingAiReport(false);
-                      onVerify(); // Call parent's verify handler
-                    }, 1500);
+                      console.log('🏁 Verification process finished');
+                    }
                   }}
-                  disabled={isLoadingAiReport}
-                  className="w-full bg-green-600 hover:bg-green-700 text-white text-sm">
+                  disabled={isLoadingAiReport || isCurrentlyVerified}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white text-sm disabled:opacity-50">
                   {isLoadingAiReport ? (
                     <>
                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
                       Verifying with AI...
+                    </>
+                  ) : isCurrentlyVerified ? (
+                    <>
+                      <CheckCircle2 className="w-4 h-4 mr-2" />
+                      Already Verified
                     </>
                   ) : (
                     <>

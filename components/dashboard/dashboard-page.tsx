@@ -42,14 +42,20 @@ export interface Tweet {
   verifiedBy?: string;
   sentToAdmin?: boolean;
   aiReport?: {
+    reportId?: string;
     title: string;
     description: string;
+    reasoning?: string;
+    credibilityAnalysis?: string;
     credibilityScore: number;
     severityScore: number;
     areaOfImpact: string;
+    areaOfImpactScore?: number;
+    socialPostCount?: number | null;
+    keyIndicators?: string[];
     sources: Array<{ title: string; url: string; domain: string }>;
     analysis: string;
-    nearbySimilarPosts?: Array<{
+    relatedPosts?: Array<{
       id: string;
       username: string;
       phoneNumber: string;
@@ -180,14 +186,101 @@ export default function DashboardPage({
       currentStatus === 'verified_true' ? 'unverified' : 'verified_true';
     const isVerified = newStatus === 'verified_true';
 
+    console.log('🔍 Starting verification:', {
+      tweetId: selectedTweet.id,
+      currentStatus,
+      newStatus,
+      isVerified,
+    });
+
     try {
       // Call the API to verify/unverify the tweet
-      await verifyTweet(selectedTweet.id, isVerified);
+      console.log('📡 Calling verifyTweet API...');
+      const result = await verifyTweet(selectedTweet.id, isVerified);
+      console.log('✅ API Response received:', result);
+
+      // Only update if the backend confirms the verification status matches what we requested
+      if (result.is_verified !== isVerified) {
+        console.warn('⚠️ Backend verification status mismatch:', {
+          requested: isVerified,
+          received: result.is_verified,
+        });
+        throw new Error('Verification status mismatch from backend');
+      }
 
       // Update local state on success
+      const actualStatus = result.is_verified ? 'verified_true' : 'unverified';
       setVerificationStatuses(
-        new Map(verificationStatuses).set(selectedTweet.id, newStatus)
+        new Map(verificationStatuses).set(selectedTweet.id, actualStatus)
       );
+
+      // If verified and report is provided, update the selected tweet with AI report
+      if (result.is_verified && result.report) {
+        console.log('📊 Processing AI report:', result.report);
+        const updatedTweet = {
+          ...selectedTweet,
+          verificationStatus: 'verified_true' as const,
+          aiReport: {
+            reportId: result.report.report_id,
+            title: result.report.title,
+            description: result.report.description,
+            reasoning: result.report.reasoning,
+            credibilityAnalysis: result.report.credibility_analysis,
+            credibilityScore: result.report.credibility_score,
+            severityScore: result.report.severity_score,
+            areaOfImpact: `Area of Impact Score: ${result.report.area_of_impact_score}`,
+            areaOfImpactScore: result.report.area_of_impact_score,
+            socialPostCount: result.report.social_post_count,
+            keyIndicators: result.report.key_indicators,
+            sources: [], // No sources in the new API response
+            analysis: `${result.report.description}\n\n${result.report.reasoning}\n\n${result.report.credibility_analysis}`,
+            relatedPosts: result.report.related_posts || [],
+          },
+        };
+        console.log('🔄 Updating tweet with AI report:', updatedTweet.aiReport);
+        setSelectedTweet(updatedTweet);
+
+        // Update the tweet in the tweets array as well
+        setTweets((prevTweets) =>
+          prevTweets.map((tweet) =>
+            tweet.id === selectedTweet.id ? updatedTweet : tweet
+          )
+        );
+        console.log('✨ Tweet updated successfully with AI report');
+      } else if (result.is_verified && !result.report) {
+        console.warn('⚠️ Verified but no AI report in response');
+        // Still update verification status even without report
+        setSelectedTweet({
+          ...selectedTweet,
+          verificationStatus: 'verified_true' as const,
+        });
+        setTweets((prevTweets) =>
+          prevTweets.map((tweet) =>
+            tweet.id === selectedTweet.id
+              ? { ...tweet, verificationStatus: 'verified_true' as const }
+              : tweet
+          )
+        );
+      } else if (!result.is_verified) {
+        console.log('🔓 Unverifying tweet');
+        // Remove AI report when unverifying
+        setSelectedTweet({
+          ...selectedTweet,
+          verificationStatus: 'unverified' as const,
+          aiReport: undefined,
+        });
+        setTweets((prevTweets) =>
+          prevTweets.map((tweet) =>
+            tweet.id === selectedTweet.id
+              ? {
+                  ...tweet,
+                  verificationStatus: 'unverified' as const,
+                  aiReport: undefined,
+                }
+              : tweet
+          )
+        );
+      }
 
       const notification: {
         id: string;
@@ -195,10 +288,10 @@ export default function DashboardPage({
         type: 'critical' | 'verified';
       } = {
         id: Date.now().toString(),
-        message: isVerified
+        message: result.is_verified
           ? 'Tweet verified successfully'
           : 'Tweet verification removed',
-        type: isVerified ? 'verified' : 'critical',
+        type: result.is_verified ? 'verified' : 'critical',
       };
       setNotifications((prev) => [...prev, notification]);
       setTimeout(() => {

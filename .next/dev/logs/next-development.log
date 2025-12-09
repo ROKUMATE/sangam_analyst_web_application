@@ -1,270 +1,42 @@
-[00:00:00.543] Server  LOG      ✓ Ready in 332ms
-[00:00:01.492] Browser ERROR   Error fetching user info: {}
-[00:00:01.492] Browser ERROR   Failed to fetch user info: {}
-[00:00:02.706] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:02.706] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:02.706] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765272039783}
-[00:00:02.934] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:02.934] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:02.935] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765272039949}
-[00:00:03.269] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
+[00:00:00.848] Server  LOG      ✓ Ready in 579ms
+[00:00:07.736] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:07.736] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:07.736] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765281469960}
+[00:00:08.282] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
 https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
-[00:00:03.841] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
-[00:00:08.931] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
-[00:00:11.934] Browser ERROR   Error fetching nearby tweets: {}
-[00:00:11.934] Browser ERROR   Failed to fetch tweets: {}
-[00:01:47.249] Server  LOG      ✓ Compiled in 66ms
-[00:02:10.307] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:10.307] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:02:10.307] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765272167371}
-[00:02:10.799] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
-https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
-[00:02:12.125] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
-[00:13:32.571] Server  LOG      ✓ Compiled in 119ms
-[00:13:32.931] Browser ERROR   ./components/dashboard/tweet-details-panel.tsx:388:113
-Parsing ecmascript source code failed
-  386 |                     target="_blank"
-  387 |                     rel="noopener noreferrer"
-> 388 |                     className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline text-xs">
-      |                                                                                                                 ^
-  389 |                     <ExternalLink className="w-3 h-3" />
-  390 |                     {source.title}
-  391 |                   </a>
+[00:00:09.812] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
+[00:00:15.389] Browser LOG     🎯 Verification Status: {"isCurrentlyVerified":false,"isVerifiedFromAPI":false,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"unverified","verificationStatus":"unverified"}
+[00:00:15.389] Browser LOG     [2;38;2;124;124;124m%s[0m 🎯 Verification Status: {"isCurrentlyVerified":false,"isVerifiedFromAPI":false,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"unverified","verificationStatus":"unverified"}
+[00:00:15.389] Browser LOG     🔍 AI Report State Check: {"hasAiReport":false,"showAiReport":false,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464"}
+[00:00:15.389] Browser LOG     ❌ No AI report available
+[00:00:15.389] Browser LOG     [2;38;2;124;124;124m%s[0m 🔍 AI Report State Check: {"hasAiReport":false,"showAiReport":false,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464"}
+[00:00:15.389] Browser LOG     [2;38;2;124;124;124m%s[0m ❌ No AI report available
+[00:00:15.389] Browser LOG     🎯 Verification Status: {"isCurrentlyVerified":false,"isVerifiedFromAPI":false,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"unverified","verificationStatus":"unverified"}
+[00:00:15.389] Browser LOG     [2;38;2;124;124;124m%s[0m 🎯 Verification Status: {"isCurrentlyVerified":false,"isVerifiedFromAPI":false,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"unverified","verificationStatus":"unverified"}
+[00:00:18.022] Browser LOG     🔘 Verify button clicked for tweet: 4ccef7d5-6e6b-4410-b16a-87a9f2364464
+[00:00:18.023] Browser LOG     📞 Calling onVerify handler...
+[00:00:18.023] Browser LOG     🔍 Starting verification: {"currentStatus":"unverified","isVerified":true,"newStatus":"verified_true","tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464"}
+[00:00:18.023] Browser LOG     📡 Calling verifyTweet API...
+[00:00:18.023] Browser LOG     🔐 Verify Tweet API Call: {"endpoint":"https://sclgw5l3-8000.inc1.devtunnels.ms/api/tweet/verify","isVerified":true,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464"}
+[00:00:18.023] Browser LOG     🎯 Verification Status: {"isCurrentlyVerified":false,"isVerifiedFromAPI":false,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"unverified","verificationStatus":"unverified"}
+[00:00:18.023] Browser LOG     [2;38;2;124;124;124m%s[0m 🎯 Verification Status: {"isCurrentlyVerified":false,"isVerifiedFromAPI":false,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"unverified","verificationStatus":"unverified"}
+[00:00:34.496] Browser LOG     📥 Verify Tweet Response Status: 200
+[00:00:34.496] Browser LOG     ✅ Verify Tweet Success: {"has_report":true,"is_verified":true,"report_id":"1ce829d7-9cb5-4415-8fba-a79e7b65ad90","tweet_id":"4ccef7d5-6e6b-4410-b16a-87a9f2364464"}
+[00:00:34.496] Browser LOG     📊 Full Report Data: {"area_of_impact_score":1,"credibility_analysis":"The credibility of this report is extremely low. The primary content of the user post is nonsensical text ('htyuytt 4 yittutukfj') which conveys no information. The attached image is dark, grainy, and offers no visual context or evidence of any event. Furthermore, there is zero engagement (0 upvotes) on the original post and absolutely no corroborating social media content (Total Posts Found: 0, Average Credibility Score: 0). Without any understandable information, visual evidence, or external validation, the post cannot be considered credible as a disaster report.","credibility_score":4,"description":"The original user post consists of an incomprehensible string of characters ('htyuytt 4 yittutukfj') and provides no discernible information about a potential disaster or hazard. The attached image is very dark, grainy, and appears to be a black or extremely low-light photo with significant visual noise; it does not depict any identifiable event, object, or scene relevant to a disaster.\n\nThere is no corroborating social media content, and the post itself has 0 upvotes/engagement. Given the gibberish content and uninformative image, it is impossible to determine the nature, if any, of an event.\n\nSeverity Score: 1.0 - The content provides absolutely no indicators of human harm, infrastructure damage, or environmental impact. The gibberish text and unidentifiable image offer no basis for assessing severity. Therefore, the lowest possible score above zero is assigned due to the complete lack of information.\n\nArea of Impact Score: 1.0 - The post mentions a single specific location (Medipally mandal, Medchal–Malkajgiri) but provides no details of an event occurring there. With 0 upvotes and no corroborating posts, there is no evidence of wider impact or spread. The absence of multiple locations, high engagement, or 'spread phrases' indicates an extremely limited, if any, area of impact.","key_indicators":["Location Mentioned (Medipally mandal, Medchal–Malkajgiri)","Gibberish Content","Uninformative Image","Zero Engagement (0 upvotes)","No Corroborating Social Media Content"],"reasoning":"Severity score is 1.0 because the 'ORIGINAL USER POST' content ('htyuytt 4 yittutukfj') is gibberish and the attached image is dark and uninformative, showing no signs of human harm, infrastructure damage, or environmental impact. There are no official confirmations or any details to suggest a disaster. Area of impact score is 1.0 because only one specific location ('Medipally mandal, Medchal–Malkajgiri') is mentioned, and the post has 0 upvotes/engagement. There is no corroborating social media content mentioning other locations or widespread impact.","related_posts":[{"created_at":"2025-12-09T11:04:41.854120+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"acda92a2-72fb-46a1-9fd8-819bbbcfb97b","user_id":11},{"created_at":"2025-12-09T10:58:16.227346+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"e582532e-1db8-4016-a7c1-e1a749ed8f3a","user_id":11},{"created_at":"2025-12-09T10:59:49.208209+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"ea3d9bfd-38a1-4e04-a3ef-f5bc47055efb","user_id":11},{"created_at":"2025-12-09T11:01:33.272333+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"f96f39f0-8fe7-4f6e-a7ec-e9f00476e055","user_id":11},{"created_at":"2025-12-09T11:05:57.753375+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"98de4180-9a91-4481-9640-a04f8280fd2a","user_id":11},{"created_at":"2025-12-09T11:50:30.775061+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"68c3ce0d-0a4a-4e66-8171-15715bbcb39e","user_id":11}],"report_id":"1ce829d7-9cb5-4415-8fba-a79e7b65ad90","severity_score":1,"social_post_count":0,"title":"Unsubstantiated Report of Unclear Event in Medipally Mandal"}
+[00:00:34.496] Browser LOG     ✅ API Response received: {"is_verified":true,"report":{"area_of_impact_score":1,"credibility_analysis":"The credibility of this report is extremely low. The primary content of the user post is nonsensical text ('htyuytt 4 yittutukfj') which conveys no information. The attached image is dark, grainy, and offers no visual context or evidence of any event. Furthermore, there is zero engagement (0 upvotes) on the original post and absolutely no corroborating social media content (Total Posts Found: 0, Average Credibility Score: 0). Without any understandable information, visual evidence, or external validation, the post cannot be considered credible as a disaster report.","credibility_score":4,"description":"The original user post consists of an incomprehensible string of characters ('htyuytt 4 yittutukfj') and provides no discernible information about a potential disaster or hazard. The attached image is very dark, grainy, and appears to be a black or extremely low-light photo with significant visual noise; it does not depict any identifiable event, object, or scene relevant to a disaster.\n\nThere is no corroborating social media content, and the post itself has 0 upvotes/engagement. Given the gibberish content and uninformative image, it is impossible to determine the nature, if any, of an event.\n\nSeverity Score: 1.0 - The content provides absolutely no indicators of human harm, infrastructure damage, or environmental impact. The gibberish text and unidentifiable image offer no basis for assessing severity. Therefore, the lowest possible score above zero is assigned due to the complete lack of information.\n\nArea of Impact Score: 1.0 - The post mentions a single specific location (Medipally mandal, Medchal–Malkajgiri) but provides no details of an event occurring there. With 0 upvotes and no corroborating posts, there is no evidence of wider impact or spread. The absence of multiple locations, high engagement, or 'spread phrases' indicates an extremely limited, if any, area of impact.","key_indicators":["Location Mentioned (Medipally mandal, Medchal–Malkajgiri)","Gibberish Content","Uninformative Image","Zero Engagement (0 upvotes)","No Corroborating Social Media Content"],"reasoning":"Severity score is 1.0 because the 'ORIGINAL USER POST' content ('htyuytt 4 yittutukfj') is gibberish and the attached image is dark and uninformative, showing no signs of human harm, infrastructure damage, or environmental impact. There are no official confirmations or any details to suggest a disaster. Area of impact score is 1.0 because only one specific location ('Medipally mandal, Medchal–Malkajgiri') is mentioned, and the post has 0 upvotes/engagement. There is no corroborating social media content mentioning other locations or widespread impact.","related_posts":[{"created_at":"2025-12-09T11:04:41.854120+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"acda92a2-72fb-46a1-9fd8-819bbbcfb97b","user_id":11},{"created_at":"2025-12-09T10:58:16.227346+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"e582532e-1db8-4016-a7c1-e1a749ed8f3a","user_id":11},{"created_at":"2025-12-09T10:59:49.208209+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"ea3d9bfd-38a1-4e04-a3ef-f5bc47055efb","user_id":11},{"created_at":"2025-12-09T11:01:33.272333+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"f96f39f0-8fe7-4f6e-a7ec-e9f00476e055","user_id":11},{"created_at":"2025-12-09T11:05:57.753375+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"98de4180-9a91-4481-9640-a04f8280fd2a","user_id":11},{"created_at":"2025-12-09T11:50:30.775061+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"68c3ce0d-0a4a-4e66-8171-15715bbcb39e","user_id":11}],"report_id":"1ce829d7-9cb5-4415-8fba-a79e7b65ad90","severity_score":1,"social_post_count":0,"title":"Unsubstantiated Report of Unclear Event in Medipally Mandal"},"tweet_id":"4ccef7d5-6e6b-4410-b16a-87a9f2364464"}
+[00:00:34.496] Browser LOG     📊 Processing AI report: {"area_of_impact_score":1,"credibility_analysis":"The credibility of this report is extremely low. The primary content of the user post is nonsensical text ('htyuytt 4 yittutukfj') which conveys no information. The attached image is dark, grainy, and offers no visual context or evidence of any event. Furthermore, there is zero engagement (0 upvotes) on the original post and absolutely no corroborating social media content (Total Posts Found: 0, Average Credibility Score: 0). Without any understandable information, visual evidence, or external validation, the post cannot be considered credible as a disaster report.","credibility_score":4,"description":"The original user post consists of an incomprehensible string of characters ('htyuytt 4 yittutukfj') and provides no discernible information about a potential disaster or hazard. The attached image is very dark, grainy, and appears to be a black or extremely low-light photo with significant visual noise; it does not depict any identifiable event, object, or scene relevant to a disaster.\n\nThere is no corroborating social media content, and the post itself has 0 upvotes/engagement. Given the gibberish content and uninformative image, it is impossible to determine the nature, if any, of an event.\n\nSeverity Score: 1.0 - The content provides absolutely no indicators of human harm, infrastructure damage, or environmental impact. The gibberish text and unidentifiable image offer no basis for assessing severity. Therefore, the lowest possible score above zero is assigned due to the complete lack of information.\n\nArea of Impact Score: 1.0 - The post mentions a single specific location (Medipally mandal, Medchal–Malkajgiri) but provides no details of an event occurring there. With 0 upvotes and no corroborating posts, there is no evidence of wider impact or spread. The absence of multiple locations, high engagement, or 'spread phrases' indicates an extremely limited, if any, area of impact.","key_indicators":["Location Mentioned (Medipally mandal, Medchal–Malkajgiri)","Gibberish Content","Uninformative Image","Zero Engagement (0 upvotes)","No Corroborating Social Media Content"],"reasoning":"Severity score is 1.0 because the 'ORIGINAL USER POST' content ('htyuytt 4 yittutukfj') is gibberish and the attached image is dark and uninformative, showing no signs of human harm, infrastructure damage, or environmental impact. There are no official confirmations or any details to suggest a disaster. Area of impact score is 1.0 because only one specific location ('Medipally mandal, Medchal–Malkajgiri') is mentioned, and the post has 0 upvotes/engagement. There is no corroborating social media content mentioning other locations or widespread impact.","related_posts":[{"created_at":"2025-12-09T11:04:41.854120+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"acda92a2-72fb-46a1-9fd8-819bbbcfb97b","user_id":11},{"created_at":"2025-12-09T10:58:16.227346+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"e582532e-1db8-4016-a7c1-e1a749ed8f3a","user_id":11},{"created_at":"2025-12-09T10:59:49.208209+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"ea3d9bfd-38a1-4e04-a3ef-f5bc47055efb","user_id":11},{"created_at":"2025-12-09T11:01:33.272333+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"f96f39f0-8fe7-4f6e-a7ec-e9f00476e055","user_id":11},{"created_at":"2025-12-09T11:05:57.753375+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"98de4180-9a91-4481-9640-a04f8280fd2a","user_id":11},{"created_at":"2025-12-09T11:50:30.775061+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"68c3ce0d-0a4a-4e66-8171-15715bbcb39e","user_id":11}],"report_id":"1ce829d7-9cb5-4415-8fba-a79e7b65ad90","severity_score":1,"social_post_count":0,"title":"Unsubstantiated Report of Unclear Event in Medipally Mandal"}
+[00:00:34.496] Browser LOG     🔄 Updating tweet with AI report: {"analysis":"The original user post consists of an incomprehensible string of characters ('htyuytt 4 yittutukfj') and provides no discernible information about a potential disaster or hazard. The attached image is very dark, grainy, and appears to be a black or extremely low-light photo with significant visual noise; it does not depict any identifiable event, object, or scene relevant to a disaster.\n\nThere is no corroborating social media content, and the post itself has 0 upvotes/engagement. Given the gibberish content and uninformative image, it is impossible to determine the nature, if any, of an event.\n\nSeverity Score: 1.0 - The content provides absolutely no indicators of human harm, infrastructure damage, or environmental impact. The gibberish text and unidentifiable image offer no basis for assessing severity. Therefore, the lowest possible score above zero is assigned due to the complete lack of information.\n\nArea of Impact Score: 1.0 - The post mentions a single specific location (Medipally mandal, Medchal–Malkajgiri) but provides no details of an event occurring there. With 0 upvotes and no corroborating posts, there is no evidence of wider impact or spread. The absence of multiple locations, high engagement, or 'spread phrases' indicates an extremely limited, if any, area of impact.\n\nSeverity score is 1.0 because the 'ORIGINAL USER POST' content ('htyuytt 4 yittutukfj') is gibberish and the attached image is dark and uninformative, showing no signs of human harm, infrastructure damage, or environmental impact. There are no official confirmations or any details to suggest a disaster. Area of impact score is 1.0 because only one specific location ('Medipally mandal, Medchal–Malkajgiri') is mentioned, and the post has 0 upvotes/engagement. There is no corroborating social media content mentioning other locations or widespread impact.\n\nThe credibility of this report is extremely low. The primary content of the user post is nonsensical text ('htyuytt 4 yittutukfj') which conveys no information. The attached image is dark, grainy, and offers no visual context or evidence of any event. Furthermore, there is zero engagement (0 upvotes) on the original post and absolutely no corroborating social media content (Total Posts Found: 0, Average Credibility Score: 0). Without any understandable information, visual evidence, or external validation, the post cannot be considered credible as a disaster report.","areaOfImpact":"Area of Impact Score: 1","areaOfImpactScore":1,"credibilityAnalysis":"The credibility of this report is extremely low. The primary content of the user post is nonsensical text ('htyuytt 4 yittutukfj') which conveys no information. The attached image is dark, grainy, and offers no visual context or evidence of any event. Furthermore, there is zero engagement (0 upvotes) on the original post and absolutely no corroborating social media content (Total Posts Found: 0, Average Credibility Score: 0). Without any understandable information, visual evidence, or external validation, the post cannot be considered credible as a disaster report.","credibilityScore":4,"description":"The original user post consists of an incomprehensible string of characters ('htyuytt 4 yittutukfj') and provides no discernible information about a potential disaster or hazard. The attached image is very dark, grainy, and appears to be a black or extremely low-light photo with significant visual noise; it does not depict any identifiable event, object, or scene relevant to a disaster.\n\nThere is no corroborating social media content, and the post itself has 0 upvotes/engagement. Given the gibberish content and uninformative image, it is impossible to determine the nature, if any, of an event.\n\nSeverity Score: 1.0 - The content provides absolutely no indicators of human harm, infrastructure damage, or environmental impact. The gibberish text and unidentifiable image offer no basis for assessing severity. Therefore, the lowest possible score above zero is assigned due to the complete lack of information.\n\nArea of Impact Score: 1.0 - The post mentions a single specific location (Medipally mandal, Medchal–Malkajgiri) but provides no details of an event occurring there. With 0 upvotes and no corroborating posts, there is no evidence of wider impact or spread. The absence of multiple locations, high engagement, or 'spread phrases' indicates an extremely limited, if any, area of impact.","keyIndicators":["Location Mentioned (Medipally mandal, Medchal–Malkajgiri)","Gibberish Content","Uninformative Image","Zero Engagement (0 upvotes)","No Corroborating Social Media Content"],"reasoning":"Severity score is 1.0 because the 'ORIGINAL USER POST' content ('htyuytt 4 yittutukfj') is gibberish and the attached image is dark and uninformative, showing no signs of human harm, infrastructure damage, or environmental impact. There are no official confirmations or any details to suggest a disaster. Area of impact score is 1.0 because only one specific location ('Medipally mandal, Medchal–Malkajgiri') is mentioned, and the post has 0 upvotes/engagement. There is no corroborating social media content mentioning other locations or widespread impact.","relatedPosts":[{"created_at":"2025-12-09T11:04:41.854120+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"acda92a2-72fb-46a1-9fd8-819bbbcfb97b","user_id":11},{"created_at":"2025-12-09T10:58:16.227346+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"e582532e-1db8-4016-a7c1-e1a749ed8f3a","user_id":11},{"created_at":"2025-12-09T10:59:49.208209+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"ea3d9bfd-38a1-4e04-a3ef-f5bc47055efb","user_id":11},{"created_at":"2025-12-09T11:01:33.272333+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"f96f39f0-8fe7-4f6e-a7ec-e9f00476e055","user_id":11},{"created_at":"2025-12-09T11:05:57.753375+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"98de4180-9a91-4481-9640-a04f8280fd2a","user_id":11},{"created_at":"2025-12-09T11:50:30.775061+00:00","first_name":"mradul","last_name":"tiwri","phone_number":"8881132265","title":"Fire on Water","tweet_id":"68c3ce0d-0a4a-4e66-8171-15715bbcb39e","user_id":11}],"reportId":"1ce829d7-9cb5-4415-8fba-a79e7b65ad90","severityScore":1,"socialPostCount":0,"sources":[],"title":"Unsubstantiated Report of Unclear Event in Medipally Mandal"}
+[00:00:34.496] Browser LOG     ✨ Tweet updated successfully with AI report
+[00:00:34.496] Browser LOG     ✅ onVerify completed successfully
+[00:00:34.496] Browser LOG     🏁 Verification process finished
+[00:00:34.496] Browser LOG     🎯 Verification Status: {"isCurrentlyVerified":true,"isVerifiedFromAPI":true,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"verified_true","verificationStatus":"verified_true"}
+[00:00:34.496] Browser LOG     [2;38;2;124;124;124m%s[0m 🎯 Verification Status: {"isCurrentlyVerified":true,"isVerifiedFromAPI":true,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"verified_true","verificationStatus":"verified_true"}
+[00:00:34.496] Browser LOG     🔍 AI Report State Check: {"aiReportTitle":"Unsubstantiated Report of Unclear Event in Medipally Mandal","hasAiReport":true,"showAiReport":false,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464"}
+[00:00:34.496] Browser LOG     ✨ Setting showAiReport to true
+[00:00:34.496] Browser LOG     🎯 Verification Status: {"isCurrentlyVerified":true,"isVerifiedFromAPI":true,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"verified_true","verificationStatus":"verified_true"}
+[00:00:34.496] Browser LOG     [2;38;2;124;124;124m%s[0m 🎯 Verification Status: {"isCurrentlyVerified":true,"isVerifiedFromAPI":true,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"verified_true","verificationStatus":"verified_true"}
+[00:00:34.496] Browser ERROR   Each child in a list should have a unique "key" prop.%s%s See https://react.dev/link/warning-keys for more information. 
 
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component Browser]
-    ./components/dashboard/dashboard-page.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component SSR]
-    ./components/dashboard/dashboard-page.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:13:32.931] Browser ERROR   ./components/dashboard/tweet-details-panel.tsx:392:19
-Parsing ecmascript source code failed
-  390 |                     {source.title}
-  391 |                   </a>
-> 392 |                 ))}
-      |                   ^
-  393 |               </div>
-  394 |             </div>
-  395 |           </div>
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component Browser]
-    ./components/dashboard/dashboard-page.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component SSR]
-    ./components/dashboard/dashboard-page.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:13:32.931] Browser ERROR   ./components/dashboard/tweet-details-panel.tsx:388:113
-Parsing ecmascript source code failed
-  386 |                     target="_blank"
-  387 |                     rel="noopener noreferrer"
-> 388 |                     className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline text-xs">
-      |                                                                                                                 ^
-  389 |                     <ExternalLink className="w-3 h-3" />
-  390 |                     {source.title}
-  391 |                   </a>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component Browser]
-    ./components/dashboard/dashboard-page.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component SSR]
-    ./components/dashboard/dashboard-page.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:13:32.931] Browser ERROR   ./components/dashboard/tweet-details-panel.tsx:392:19
-Parsing ecmascript source code failed
-  390 |                     {source.title}
-  391 |                   </a>
-> 392 |                 ))}
-      |                   ^
-  393 |               </div>
-  394 |             </div>
-  395 |           </div>
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component Browser]
-    ./components/dashboard/dashboard-page.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component SSR]
-    ./components/dashboard/dashboard-page.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:14:29.939] Browser ERROR   ./components/dashboard/tweet-details-panel.tsx:388:113
-Parsing ecmascript source code failed
-  386 |                     target="_blank"
-  387 |                     rel="noopener noreferrer"
-> 388 |                     className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline text-xs">
-      |                                                                                                                 ^
-  389 |                     <ExternalLink className="w-3 h-3" />
-  390 |                     {source.title}
-  391 |                   </a>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component Browser]
-    ./components/dashboard/dashboard-page.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component SSR]
-    ./components/dashboard/dashboard-page.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:14:29.940] Browser ERROR   ./components/dashboard/tweet-details-panel.tsx:392:19
-Parsing ecmascript source code failed
-  390 |                     {source.title}
-  391 |                   </a>
-> 392 |                 ))}
-      |                   ^
-  393 |               </div>
-  394 |             </div>
-  395 |           </div>
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component Browser]
-    ./components/dashboard/dashboard-page.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component SSR]
-    ./components/dashboard/dashboard-page.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:14:29.940] Browser ERROR   ./components/dashboard/tweet-details-panel.tsx:388:113
-Parsing ecmascript source code failed
-  386 |                     target="_blank"
-  387 |                     rel="noopener noreferrer"
-> 388 |                     className="flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:underline text-xs">
-      |                                                                                                                 ^
-  389 |                     <ExternalLink className="w-3 h-3" />
-  390 |                     {source.title}
-  391 |                   </a>
-
-Unexpected token. Did you mean `{'>'}` or `&gt;`?
-
-Import traces:
-  Client Component Browser:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component Browser]
-    ./components/dashboard/dashboard-page.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component SSR]
-    ./components/dashboard/dashboard-page.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:14:29.940] Browser ERROR   ./components/dashboard/tweet-details-panel.tsx:392:19
-Parsing ecmascript source code failed
-  390 |                     {source.title}
-  391 |                   </a>
-> 392 |                 ))}
-      |                   ^
-  393 |               </div>
-  394 |             </div>
-  395 |           </div>
-
-Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
-
-Import traces:
-  Client Component Browser:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component Browser]
-    ./components/dashboard/dashboard-page.tsx [Client Component Browser]
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./components/dashboard/tweet-details-panel.tsx [Client Component SSR]
-    ./components/dashboard/dashboard-page.tsx [Client Component SSR]
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[00:15:12.491] Server  LOG      ✓ Compiled in 51ms
-[00:16:27.630] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
-https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
-[00:16:31.992] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:16:31.992] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:16:31.992] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765273029067}
-[00:16:32.352] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
-https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
-[00:16:33.172] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
-[00:22:24.027] Server  LOG      ✓ Compiled in 87ms
-[00:27:32.918] Server  LOG      ✓ Compiled in 79ms
-[02:06:39.405] Server  LOG      ✓ Compiled in 276ms
-[02:09:37.614] Server  LOG      ✓ Compiled in 178ms
-[02:10:13.543] Server  LOG      ✓ Compiled in 68ms
-[02:10:18.518] Server  LOG      ✓ Compiled in 65ms
-[02:10:19.933] Browser WARN    Element with name "gmp-internal-loading-text" already defined.
-[02:10:19.933] Browser WARN    Element with name "gmp-internal-request-error-text" already defined.
-[02:10:19.933] Browser WARN    Element with name "gmp-internal-back-button" already defined.
-[02:10:19.933] Browser WARN    Element with name "gmp-internal-dialog" already defined.
-[02:10:19.933] Browser WARN    Element with name "gmp-internal-disclosure" already defined.
-[02:10:19.933] Browser WARN    Element with name "gmp-internal-disclosure-section" already defined.
-[02:10:19.933] Browser WARN    Element with name "gmp-internal-attribution" already defined.
-[02:10:19.933] Browser WARN    Element with name "gmp-internal-element-support-verification" already defined.
-[02:10:19.933] Browser WARN    Element with name "gmp-map" already defined.
-[02:10:19.933] Browser WARN    Element with name "gmp-pin" already defined.
-[02:10:23.932] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
-[02:10:23.932] Browser WARN    Element with name "gmp-internal-use-am" already defined.
-[02:10:30.059] Server  LOG      ✓ Compiled in 61ms
-[02:10:35.554] Server  LOG      ✓ Compiled in 52ms
-[02:11:14.718] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
-https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
-[02:11:14.718] Browser WARN    Element with name "gmp-internal-camera-control" already defined.
-[02:11:15.673] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[02:11:15.673] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[02:11:15.673] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765279912629}
-[02:11:25.934] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
-[02:13:01.285] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
-https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
-[02:13:22.770] Server  LOG      ✓ Compiled in 83ms
-[02:13:23.311] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[02:13:23.311] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[02:13:23.311] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765280040267}
-[02:13:24.063] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
-https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
-[02:13:34.151] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
-[02:13:36.639] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[02:13:36.639] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[02:13:36.639] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765280053594}
-[02:13:37.415] Browser ERROR   Google Maps JavaScript API error: BillingNotEnabledMapError
-https://developers.google.com/maps/documentation/javascript/error-messages#billing-not-enabled-map-error
-[02:13:54.361] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
-[02:14:24.210] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[02:14:24.210] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[02:14:24.210] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.6.1","sv":"0.1.3","ts":1765280101164}
-[02:14:46.187] Browser WARN    As of February 21st, 2024, google.maps.Marker is deprecated. Please use google.maps.marker.AdvancedMarkerElement instead. At this time, google.maps.Marker is not scheduled to be discontinued, but google.maps.marker.AdvancedMarkerElement is recommended over google.maps.Marker. While google.maps.Marker will continue to receive bug fixes for any major regressions, existing bugs in google.maps.Marker will not be addressed. At least 12 months notice will be given before support is discontinued. Please see https://developers.google.com/maps/deprecations for additional details and https://developers.google.com/maps/documentation/javascript/advanced-markers/migration for the migration guide.
+Check the render method of `TweetDetailsPanel`. 
+[00:00:37.417] Browser LOG     🎯 Verification Status: {"isCurrentlyVerified":true,"isVerifiedFromAPI":true,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"verified_true","verificationStatus":"verified_true"}
+[00:00:37.417] Browser LOG     [2;38;2;124;124;124m%s[0m 🎯 Verification Status: {"isCurrentlyVerified":true,"isVerifiedFromAPI":true,"tweetId":"4ccef7d5-6e6b-4410-b16a-87a9f2364464","tweetVerificationStatus":"verified_true","verificationStatus":"verified_true"}

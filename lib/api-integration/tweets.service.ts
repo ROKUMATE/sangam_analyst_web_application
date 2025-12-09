@@ -57,14 +57,20 @@ export interface Tweet {
   verifiedBy?: string;
   sentToAdmin?: boolean;
   aiReport?: {
+    reportId?: string;
     title: string;
     description: string;
+    reasoning?: string;
+    credibilityAnalysis?: string;
     credibilityScore: number;
     severityScore: number;
     areaOfImpact: string;
+    areaOfImpactScore?: number;
+    socialPostCount?: number | null;
+    keyIndicators?: string[];
     sources: Array<{ title: string; url: string; domain: string }>;
     analysis: string;
-    nearbySimilarPosts?: Array<{
+    relatedPosts?: Array<{
       id: string;
       username: string;
       phoneNumber: string;
@@ -240,75 +246,7 @@ function mapAPITweetToTweet(
       apiTweet.upvote
     ),
     verificationStatus: apiTweet.is_verified ? 'verified_true' : 'unverified',
-    aiReport: {
-      title: apiTweet.Title || 'Ocean Disaster Alert',
-      description: apiTweet.hazard_description,
-      credibilityScore: apiTweet.credibility
-        ? Math.round(apiTweet.credibility * 10)
-        : 75,
-      severityScore: apiTweet.severity
-        ? apiTweet.severity === 'critical'
-          ? 95
-          : apiTweet.severity === 'high'
-          ? 75
-          : apiTweet.severity === 'medium'
-          ? 50
-          : 25
-        : 65,
-      areaOfImpact: apiTweet.area_of_impact || '5-10 km radius',
-      sources: [
-        {
-          title: 'National Oceanic and Atmospheric Administration',
-          url: 'https://www.noaa.gov',
-          domain: 'noaa.gov',
-        },
-        {
-          title: 'Weather Underground',
-          url: 'https://www.wunderground.com',
-          domain: 'wunderground.com',
-        },
-        {
-          title: 'National Weather Service',
-          url: 'https://www.weather.gov',
-          domain: 'weather.gov',
-        },
-      ],
-      analysis: apiTweet.credibility
-        ? `AI Analysis: Credibility score is ${Math.round(
-            apiTweet.credibility * 10
-          )}% based on cross-referencing multiple verified sources. The report has been validated against satellite imagery and historical weather patterns. Area of impact: ${
-            apiTweet.area_of_impact || 'Unknown'
-          }. Severity classification: ${
-            apiTweet.severity ||
-            determineSeverity(
-              apiTweet.hazard_type,
-              apiTweet.credibility,
-              apiTweet.upvote
-            )
-          }.`
-        : `AI Analysis: This report has been analyzed using machine learning models trained on historical ocean disaster data. Based on the reported hazard type "${
-            apiTweet.hazard_type
-          }" and location coordinates, the system has assigned a preliminary credibility score of 75%. Further verification recommended through satellite imagery and local authority reports. Area of impact: ${
-            apiTweet.area_of_impact || 'Estimated 5-10 km radius'
-          }. Keywords identified: ${apiTweet.keywords.join(', ')}.`,
-      nearbySimilarPosts: [
-        // Hardcoded sample data - will be replaced with API call
-        {
-          id: 'sample-1',
-          username: 'User ' + ((apiTweet.user + 1) % 100),
-          phoneNumber: '+1-555-1234',
-          timestamp: '15 min ago',
-          distance: 0.5,
-        },
-        {
-          id: 'sample-2',
-          username: 'User ' + ((apiTweet.user + 2) % 100),
-          phoneNumber: '+1-555-5678',
-          timestamp: '45 min ago',
-          distance: 0.8,
-        },
-      ],
-    },
+    // aiReport is undefined initially - will be populated after verification API call
   };
 }
 
@@ -410,21 +348,50 @@ export async function getMyTweets(userLocation?: {
 }
 
 /**
+ * API Verification Response Interface
+ */
+interface APIVerificationReport {
+  report_id: string;
+  title: string;
+  description: string;
+  reasoning: string;
+  credibility_analysis: string;
+  severity_score: number;
+  credibility_score: number;
+  social_post_count: number | null;
+  area_of_impact_score: number;
+  key_indicators: string[];
+  related_posts: any[];
+}
+
+interface APIVerificationResponse {
+  tweet_id: string;
+  is_verified: boolean;
+  report?: APIVerificationReport;
+}
+
+/**
  * Verify or unverify a tweet
  *
  * @param tweetId - The tweet_id to verify
  * @param isVerified - Whether to mark as verified (true) or unverified (false)
- * @returns Promise with verification response
+ * @returns Promise with verification response including AI report if verified
  */
 export async function verifyTweet(
   tweetId: string,
   isVerified: boolean
-): Promise<{ tweet_id: string; is_verified: boolean }> {
+): Promise<APIVerificationResponse> {
   const token = getAccessToken();
 
   if (!token) {
     throw new Error('Not authenticated. Please login again.');
   }
+
+  console.log('🔐 Verify Tweet API Call:', {
+    endpoint: ANALYST_ENDPOINTS.VERIFY_TWEET,
+    tweetId,
+    isVerified,
+  });
 
   try {
     const response = await fetch(ANALYST_ENDPOINTS.VERIFY_TWEET, {
@@ -439,16 +406,25 @@ export async function verifyTweet(
       }),
     });
 
+    console.log('📥 Verify Tweet Response Status:', response.status);
+
     if (!response.ok) {
       if (response.status === 401) {
         throw new Error('Session expired. Please login again.');
       }
       const errorData = await response.json();
+      console.error('❌ Verify Tweet Error:', errorData);
       throw new Error(errorData.error || 'Failed to verify tweet');
     }
 
-    const result: { tweet_id: string; is_verified: boolean } =
-      await response.json();
+    const result: APIVerificationResponse = await response.json();
+    console.log('✅ Verify Tweet Success:', {
+      tweet_id: result.tweet_id,
+      is_verified: result.is_verified,
+      has_report: !!result.report,
+      report_id: result.report?.report_id,
+    });
+    console.log('📊 Full Report Data:', result.report);
     return result;
   } catch (error) {
     console.error('Error verifying tweet:', error);
