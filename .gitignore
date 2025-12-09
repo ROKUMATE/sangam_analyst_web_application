@@ -1,27 +1,35 @@
-# dependencies
-/node_modules
-.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
+# Next.js build output
 .next/
-/out/
+out/
+dist/
 
-# misc
-.DS_Store
-*.pem
+# Node modules
+node_modules/
 
-# debug
+# Environment variables
+.env.local
+.env.*.local
+.env
+
+# Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.env*.local
-.vercel
+.pnpm-debug.log*
 
-.env
+# IDE and OS files
+.DS_Store
+.idea/
+.vscode/
+*.iml
 
-.next
+# Dependency lock files (if not explicitly managed)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Vercel deployment files
+.vercel/
+
+# Other temporary files
+tmp/
