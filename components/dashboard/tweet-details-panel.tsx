@@ -74,7 +74,9 @@ export default function TweetDetailsPanel({
   }, [tweet.id]);
 
   // Use fetched user info or fallback to tweet defaults
-  const displayName = userInfo?.username || tweet.author;
+  const displayName = userInfo
+    ? `${userInfo.first_name} ${userInfo.last_name}`.trim()
+    : tweet.author;
   const displayPhone = userInfo?.phone || tweet.phone;
 
   // Check if tweet is already verified from API

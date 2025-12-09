@@ -461,7 +461,8 @@ export async function verifyTweet(
  */
 export interface UserInfo {
   id: number;
-  username: string | null;
+  first_name: string;
+  last_name: string;
   email: string | null;
   phone: string;
   is_analyst: boolean;
