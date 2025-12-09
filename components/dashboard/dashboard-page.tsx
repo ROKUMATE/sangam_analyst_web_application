@@ -213,9 +213,9 @@ export default function DashboardPage({
       <DashboardHeader analyst={analyst} onLogout={handleLogout} />
       <NotificationStack notifications={notifications} />
 
-      <main className="flex-1 flex flex-col overflow-hidden">
-        {/* Top Section: Map (50%) and Stats (50%) */}
-        <div className="flex flex-1 gap-6 p-6 border-b">
+      <main className="flex-1 flex flex-col">
+        {/* Top Section: Map (75vh) and Stats */}
+        <div className="h-[75vh] flex gap-6 p-6 border-b">
           {/* Left: Map */}
           <div className="flex-1 min-w-0">
             <MapSection
@@ -226,20 +226,20 @@ export default function DashboardPage({
           </div>
 
           {/* Right: Stats 2x2 Grid */}
-          <div className="w-80">
+          <div className="w-80 h-full">
             <StatsOverview stats={stats} />
           </div>
         </div>
 
-        {/* Bottom Section: Tweets List (full when closed, 40% when open) and Details Panel (60% when open) */}
-        <div className="flex-1 flex overflow-hidden gap-0 p-6 pt-0">
+        {/* Bottom Section: Tweets List - Full width when closed, 40% when open and Details Panel (60% when open) */}
+        <div className="flex gap-0 p-6 pt-0">
           {/* Left: Tweet List - Full width when no selection, 40% when selection exists */}
           <div
             className={`flex flex-col ${
               selectedTweet ? 'w-2/5' : 'w-full'
             } transition-all duration-300`}>
             <Card
-              className="h-full border-2 rounded-lg flex flex-col shadow-sm"
+              className="border-2 rounded-lg flex flex-col shadow-sm"
               style={
                 selectedTweet ? { borderRight: '1px solid var(--border)' } : {}
               }>
@@ -275,7 +275,7 @@ export default function DashboardPage({
               </CardHeader>
               <CardContent
                 ref={tweetListRef}
-                className="flex-1 overflow-y-auto p-3">
+                className="overflow-y-auto p-3 max-h-[550px]">
                 {loading ? (
                   <div className="flex items-center justify-center h-full">
                     <div className="text-center space-y-3">

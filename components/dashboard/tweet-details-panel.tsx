@@ -55,7 +55,7 @@ export default function TweetDetailsPanel({
   };
 
   return (
-    <Card className="h-full border-2 rounded-lg flex flex-col overflow-hidden shadow-sm">
+    <Card className="border-2 rounded-lg flex flex-col overflow-hidden shadow-sm max-h-[700px]">
       <CardHeader className="pb-3 border-b flex-shrink-0 flex flex-row items-start justify-between px-4 py-4">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
