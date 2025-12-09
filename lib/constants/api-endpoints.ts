@@ -44,6 +44,9 @@ export const ANALYST_ENDPOINTS = {
 
   // Get user information by user ID
   GET_USER: `${BASE_URL}/api/user`,
+
+  // Get Reddit sources for social media monitoring
+  GET_REDDIT_SOURCES: `${BASE_URL}/api/reddit/sources`,
 } as const;
 
 /**

@@ -54,6 +54,9 @@ export default function TweetDetailsPanel({
   const [previewPost, setPreviewPost] = useState<Tweet | null>(null);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [isLoadingUserInfo, setIsLoadingUserInfo] = useState(false);
+  const [verificationMethod, setVerificationMethod] = useState<
+    'ai' | 'manual' | null
+  >(null);
 
   // Fetch user information when tweet changes
   useEffect(() => {
@@ -399,51 +402,36 @@ export default function TweetDetailsPanel({
               </TabsList>
 
               <TabsContent value="ai" className="space-y-3 mt-3">
-                {!showAiReport ? (
-                  <>
-                    <p className="text-xs text-muted-foreground">
-                      Click to analyze this tweet with AI and get detailed
-                      verification report
-                    </p>
-                    <Button
-                      onClick={() => {
-                        setIsLoadingAiReport(true);
-                        // Simulate API call - replace with actual API call later
-                        // await verifyTweet(tweet.id, true);
-                        // const report = await getAiReport(tweet.id);
-                        setTimeout(() => {
-                          setShowAiReport(true);
-                          setIsLoadingAiReport(false);
-                        }, 1500);
-                      }}
-                      disabled={isLoadingAiReport}
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm">
-                      {isLoadingAiReport ? (
-                        <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                          Analyzing...
-                        </>
-                      ) : (
-                        <>
-                          <Zap className="w-4 h-4 mr-2" />
-                          Verify with AI
-                        </>
-                      )}
-                    </Button>
-                  </>
-                ) : (
-                  <>
-                    <p className="text-xs text-muted-foreground">
-                      Review the AI analysis report above and verify this tweet
-                    </p>
-                    <Button
-                      onClick={onVerify}
-                      className="w-full bg-green-600 hover:bg-green-700 text-white text-sm">
+                <p className="text-xs text-muted-foreground">
+                  Verify this tweet using AI analysis. The detailed AI report
+                  will be displayed after verification.
+                </p>
+                <Button
+                  onClick={() => {
+                    setIsLoadingAiReport(true);
+                    setVerificationMethod('ai');
+                    // Simulate API call - replace with actual verification API call
+                    // This will call verification API and fetch AI report
+                    setTimeout(() => {
+                      setShowAiReport(true);
+                      setIsLoadingAiReport(false);
+                      onVerify(); // Call parent's verify handler
+                    }, 1500);
+                  }}
+                  disabled={isLoadingAiReport}
+                  className="w-full bg-green-600 hover:bg-green-700 text-white text-sm">
+                  {isLoadingAiReport ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      Verifying with AI...
+                    </>
+                  ) : (
+                    <>
                       <CheckCircle2 className="w-4 h-4 mr-2" />
-                      Verify Tweet
-                    </Button>
-                  </>
-                )}
+                      Verify Tweet with AI
+                    </>
+                  )}
+                </Button>
               </TabsContent>
 
               <TabsContent value="manual" className="space-y-3 mt-3">
@@ -496,6 +484,7 @@ export default function TweetDetailsPanel({
 
                     <Button
                       onClick={() => {
+                        setVerificationMethod('manual');
                         onVerify();
                         setShowManualVerification(false);
                       }}

@@ -7,6 +7,7 @@ import DashboardHeader from './dashboard-header';
 import MapSection from './map-section';
 import StatsOverview from './stats-overview';
 import NotificationStack from './notification-stack';
+import { AnalyticsPage } from './analytics-page';
 import { RefreshCw } from 'lucide-react';
 import {
   Card,
@@ -15,6 +16,7 @@ import {
   CardTitle,
   CardDescription,
 } from '@/components/ui/card';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import {
   getNearbyTweets,
   verifyTweet,
@@ -86,7 +88,12 @@ export default function DashboardPage({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+  const [activeTab, setActiveTab] = useState<'tweets' | 'analytics'>('tweets');
   const tweetListRef = useRef<HTMLDivElement>(null);
+
+  // User location (used for both tweets and analytics)
+  const userLat = 17.4059406;
+  const userLon = 78.6210593;
 
   // Fetch tweets on component mount
   useEffect(() => {
@@ -94,11 +101,6 @@ export default function DashboardPage({
       try {
         setLoading(true);
         setError(null);
-
-        // Get user's current location for nearby tweets
-        // You can enhance this with browser geolocation API or use analyst's saved location
-        const userLat = 17.4059406; // Default location (can be replaced with dynamic location)
-        const userLon = 78.6210593;
 
         const fetchedTweets = await getNearbyTweets(userLat, userLon);
         setTweets(fetchedTweets);
@@ -117,9 +119,6 @@ export default function DashboardPage({
     try {
       setRefreshing(true);
       setError(null);
-
-      const userLat = 17.4059406;
-      const userLon = 78.6210593;
 
       const fetchedTweets = await getNearbyTweets(userLat, userLon);
       setTweets(fetchedTweets);
@@ -294,127 +293,156 @@ export default function DashboardPage({
           </div>
         </div>
 
-        {/* Bottom Section: Tweets List - Full width when closed, 40% when open and Details Panel (60% when open) */}
+        {/* Bottom Section: Tabs for Tweets List and Analytics */}
         <div className="flex gap-0 p-6 pt-0">
-          {/* Left: Tweet List - Full width when no selection, 40% when selection exists */}
-          <div
-            className={`flex flex-col ${
-              selectedTweet ? 'w-2/5' : 'w-full'
-            } transition-all duration-300`}>
-            <Card
-              className="border-2 rounded-lg flex flex-col shadow-sm"
-              style={
-                selectedTweet ? { borderRight: '1px solid var(--border)' } : {}
-              }>
-              <CardHeader className="pb-3 border-b flex-shrink-0">
-                <div className="flex flex-row items-center justify-between space-y-0">
-                  <div>
-                    <CardTitle className="text-lg">Tweets in Area</CardTitle>
-                    <CardDescription className="text-xs">
-                      40 km radius
-                    </CardDescription>
-                  </div>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={handleRefreshTweets}
-                      disabled={refreshing}
-                      className="p-1.5 rounded border border-border hover:border-primary/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                      title="Refresh tweets">
-                      <RefreshCw
-                        className={`w-4 h-4 ${
-                          refreshing ? 'animate-spin' : ''
-                        }`}
-                      />
-                    </button>
-                    <div className="flex gap-1">
-                      <button
-                        onClick={() => setSortBy('time')}
-                        className={`px-2 py-1 text-xs rounded border transition-colors ${
-                          sortBy === 'time'
-                            ? 'bg-primary text-primary-foreground border-primary'
-                            : 'border-border hover:border-primary/50'
-                        }`}>
-                        Time
-                      </button>
-                      <button
-                        onClick={() => setSortBy('votes')}
-                        className={`px-2 py-1 text-xs rounded border transition-colors ${
-                          sortBy === 'votes'
-                            ? 'bg-primary text-primary-foreground border-primary'
-                            : 'border-border hover:border-primary/50'
-                        }`}>
-                        Votes
-                      </button>
-                      <button
-                        onClick={() => setSortBy('distance')}
-                        className={`px-2 py-1 text-xs rounded border transition-colors ${
-                          sortBy === 'distance'
-                            ? 'bg-primary text-primary-foreground border-primary'
-                            : 'border-border hover:border-primary/50'
-                        }`}>
-                        Distance
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent
-                ref={tweetListRef}
-                className="overflow-y-auto p-3 max-h-[550px]">
-                {loading ? (
-                  <div className="flex items-center justify-center h-full">
-                    <div className="text-center space-y-3">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
-                      <p className="text-sm text-muted-foreground">
-                        Loading tweets...
-                      </p>
-                    </div>
-                  </div>
-                ) : error ? (
-                  <div className="flex items-center justify-center h-full">
-                    <div className="text-center space-y-3">
-                      <p className="text-sm text-destructive">{error}</p>
-                      <button
-                        onClick={() => window.location.reload()}
-                        className="text-xs text-primary hover:underline">
-                        Retry
-                      </button>
-                    </div>
-                  </div>
-                ) : tweets.length === 0 ? (
-                  <div className="flex items-center justify-center h-full">
-                    <p className="text-sm text-muted-foreground">
-                      No tweets found in your area
-                    </p>
-                  </div>
-                ) : (
-                  <TweetList
-                    tweets={sortedTweets}
-                    onSelectTweet={setSelectedTweet}
-                    selectedTweetId={selectedTweet?.id}
-                    verificationStatuses={verificationStatuses}
-                    sentToAdmin={sentToAdminTweets}
-                  />
-                )}
-              </CardContent>
-            </Card>
-          </div>
+          <Tabs
+            value={activeTab}
+            onValueChange={(value) =>
+              setActiveTab(value as 'tweets' | 'analytics')
+            }
+            className="w-full">
+            <TabsList className="mb-4">
+              <TabsTrigger value="tweets">Tweets Monitor</TabsTrigger>
+              <TabsTrigger value="analytics">
+                Social Media Analytics
+              </TabsTrigger>
+            </TabsList>
 
-          {/* Right: Details Panel (60%, smooth slide-in) - Only shows when tweet selected */}
-          {selectedTweet && (
-            <div className="w-3/5 overflow-hidden animate-in slide-in-from-right-96 duration-300 pl-6">
-              <TweetDetailsPanel
-                tweet={selectedTweet}
-                verificationStatus={
-                  verificationStatuses.get(selectedTweet.id) || 'unverified'
-                }
-                isSentToAdmin={sentToAdminTweets.has(selectedTweet.id)}
-                onVerify={handleVerifyTweet}
-                onSendToAdmin={handleSendToAdmin}
-                onClose={() => setSelectedTweet(null)}
-              />
-            </div>
-          )}
+            {/* Tweets Tab */}
+            <TabsContent value="tweets" className="mt-0">
+              <div className="flex gap-0">
+                {/* Left: Tweet List - Full width when no selection, 40% when selection exists */}
+                <div
+                  className={`flex flex-col ${
+                    selectedTweet ? 'w-2/5' : 'w-full'
+                  } transition-all duration-300`}>
+                  <Card
+                    className="border-2 rounded-lg flex flex-col shadow-sm"
+                    style={
+                      selectedTweet
+                        ? { borderRight: '1px solid var(--border)' }
+                        : {}
+                    }>
+                    <CardHeader className="pb-3 border-b flex-shrink-0">
+                      <div className="flex flex-row items-center justify-between space-y-0">
+                        <div>
+                          <CardTitle className="text-lg">
+                            Tweets in Area
+                          </CardTitle>
+                          <CardDescription className="text-xs">
+                            40 km radius
+                          </CardDescription>
+                        </div>
+                        <div className="flex gap-2">
+                          <button
+                            onClick={handleRefreshTweets}
+                            disabled={refreshing}
+                            className="p-1.5 rounded border border-border hover:border-primary/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            title="Refresh tweets">
+                            <RefreshCw
+                              className={`w-4 h-4 ${
+                                refreshing ? 'animate-spin' : ''
+                              }`}
+                            />
+                          </button>
+                          <div className="flex gap-1">
+                            <button
+                              onClick={() => setSortBy('time')}
+                              className={`px-2 py-1 text-xs rounded border transition-colors ${
+                                sortBy === 'time'
+                                  ? 'bg-primary text-primary-foreground border-primary'
+                                  : 'border-border hover:border-primary/50'
+                              }`}>
+                              Time
+                            </button>
+                            <button
+                              onClick={() => setSortBy('votes')}
+                              className={`px-2 py-1 text-xs rounded border transition-colors ${
+                                sortBy === 'votes'
+                                  ? 'bg-primary text-primary-foreground border-primary'
+                                  : 'border-border hover:border-primary/50'
+                              }`}>
+                              Votes
+                            </button>
+                            <button
+                              onClick={() => setSortBy('distance')}
+                              className={`px-2 py-1 text-xs rounded border transition-colors ${
+                                sortBy === 'distance'
+                                  ? 'bg-primary text-primary-foreground border-primary'
+                                  : 'border-border hover:border-primary/50'
+                              }`}>
+                              Distance
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent
+                      ref={tweetListRef}
+                      className="overflow-y-auto p-3 max-h-[550px]">
+                      {loading ? (
+                        <div className="flex items-center justify-center h-full">
+                          <div className="text-center space-y-3">
+                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+                            <p className="text-sm text-muted-foreground">
+                              Loading tweets...
+                            </p>
+                          </div>
+                        </div>
+                      ) : error ? (
+                        <div className="flex items-center justify-center h-full">
+                          <div className="text-center space-y-3">
+                            <p className="text-sm text-destructive">{error}</p>
+                            <button
+                              onClick={() => window.location.reload()}
+                              className="text-xs text-primary hover:underline">
+                              Retry
+                            </button>
+                          </div>
+                        </div>
+                      ) : tweets.length === 0 ? (
+                        <div className="flex items-center justify-center h-full">
+                          <p className="text-sm text-muted-foreground">
+                            No tweets found in your area
+                          </p>
+                        </div>
+                      ) : (
+                        <TweetList
+                          tweets={sortedTweets}
+                          onSelectTweet={setSelectedTweet}
+                          selectedTweetId={selectedTweet?.id}
+                          verificationStatuses={verificationStatuses}
+                          sentToAdmin={sentToAdminTweets}
+                        />
+                      )}
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Right: Details Panel (60%, smooth slide-in) - Only shows when tweet selected */}
+                {selectedTweet && (
+                  <div className="w-3/5 overflow-hidden animate-in slide-in-from-right-96 duration-300 pl-6">
+                    <TweetDetailsPanel
+                      tweet={selectedTweet}
+                      verificationStatus={
+                        verificationStatuses.get(selectedTweet.id) ||
+                        'unverified'
+                      }
+                      isSentToAdmin={sentToAdminTweets.has(selectedTweet.id)}
+                      onVerify={handleVerifyTweet}
+                      onSendToAdmin={handleSendToAdmin}
+                      onClose={() => setSelectedTweet(null)}
+                    />
+                  </div>
+                )}
+              </div>
+            </TabsContent>
+
+            {/* Analytics Tab */}
+            <TabsContent value="analytics" className="mt-0">
+              <AnalyticsPage lat={userLat} lon={userLon} />
+            </TabsContent>
+          </Tabs>
         </div>
       </main>
     </div>
