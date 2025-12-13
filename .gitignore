@@ -1,2 +1,35 @@
-node_modules
+# Next.js build output
+.next/
+out/
+dist/
+
+# Node modules
+node_modules/
+
+# Environment variables
+.env.local
+.env.*.local
 .env
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# IDE and OS files
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Dependency lock files (if not explicitly managed)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Vercel deployment files
+.vercel/
+
+# Other temporary files
+tmp/
